@@ -68,7 +68,7 @@ Product.propTypes={ // validation by react propTypes
 
 const ProductWrapper = styled.div`
 .card{
-border-color:transparent;
+border-color:var(--mainWhite);
 transition: all 1s linear;
 }
 .card-footer{
@@ -78,8 +78,8 @@ transition: all 1s linear;
 }
 &:hover{
     .card{
-        border:0.04rem solid rgba(0,0,0,0.2);
-        box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
+        border:0.04rem solid #ffd400;
+        box-shadow: 2px 2px 5px 0px #ffd400;
     }
     .card-footer{
         background:rgba(274,274,274);
@@ -100,7 +100,7 @@ transition: all 1s linear;
     bottom:0;
     right:0;
     padding:0.2rem 0.4rem;
-    background:var(--lightBlue);
+    background:var(--mainGold);
     border:0;
     color:var(--mainWhite);
     font-size:1.4rem;

@@ -26,7 +26,7 @@ class Navbar extends Component {
             </ul>
             <Link to="/Cart" className="ml-auto">
                 <ButtonContainer>
-                    <FaShoppingCart />
+                    <FaShoppingCart className="shoppingCartIcon" />
                     <span className='mr-2 mycartButtonText'>
                     My Cart
                     </span>
@@ -39,14 +39,18 @@ class Navbar extends Component {
 
 const NavWrapper = styled.nav`
 background:var(--mainBlue);
+border-bottom:2px solid var(--mainYellow);
 .nav-link{
-    color:var(--mainWhite) !important;
+    color:var(--mainYellow) !important;
     font-size:1.3rem;
     text-transfrom: capitalize;
 }
 .mycartButtonText{
     padding-left:10px;
-    color:white;
+    color:#ffd400;
+}
+.shoppingCartIcon{
+    color:#ffd400;
 }
 `
 

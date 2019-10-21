@@ -6,111 +6,128 @@ https://www.iconfinder.com/Makoto_msk */
 export const storeProducts = [
   {
     id: 1,
-    title: "Google Pixel - Black",
-    img: "img/product-1.png",
+    title: "LARRISSA GOLD RING",
+    img: "img/rings/1.jpg",
     price: 10,
     company: "GOOGLE",
     info:
-      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+      "Inspired by the iconic ghungroo beads, this collection revives the classic ornament with a modern twist. While the soulful gold beads create the melody of Jhanak, the colourful gemstones dance to its rhythm. Each piece is designed to mesmerize you with its golden melody.",
     inCart: false,
     count: 0,
-    total: 0
+    total: 0,
+    itemSize: "7, 8, 9, 10"
   },
   {
     id: 2,
-    title: "Samsung S7",
-    img: "img/product-2.png",
+    title: "Pristine Fire Yellow Gold",
+    img: "img/rings/2.jpg",
     price: 16,
     company: "SAMSUNG",
     info:
-      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+      "Available in 10k or 14k gold, the narrow gold ring with trim is handcrafted in Ireland by master craftsmen. The center band has the Celtic shield design engraved onto it, then gold rails have been added to each side of the ring to give it a more solid feel. Celebrate your Irish heritage with this unique Celtic wedding band.",
     inCart: false,
     count: 0,
-    total: 0
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: "img/rings/2.jpg"
   },
   {
     id: 3,
-    title: "HTC 10 - Black",
-    img: "img/product-3.png",
+    title: "YUTIKA HEARTS GOLD RING",
+    img: "img/rings/3.jpg",
     price: 8,
     company: "htc",
     info:
-      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+      "Become the next trendsetter amongst your friends with this resplendent ring. It is studded with kundan along a delicate design for an elegant look. Made of 22-karat gold, it casts an exquisite look.",
     inCart: false,
     count: 0,
-    total: 0
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: "img/rings/2.jpg"
   },
   {
     id: 4,
-    title: "HTC 10 - White",
-    img: "img/product-4.png",
+    title: "NAC 22k (916) Yellow",
+    img: "img/rings/4.jpg",
     price: 18,
     company: "htc",
     info:
-      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+      "Contemporary and chic, this intertwine ring features unfixed bands of 18k white, rose, and yellow gold that move together while you slide it on your .",
     inCart: false,
     count: 0,
-    total: 0
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: "img/rings/2.jpg"
   },
   {
     id: 5,
-    title: "HTC Desire 626s",
-    img: "img/product-5.png",
+    title: "Mythili Gold Ring",
+    img: "img/rings/5.jpg",
     price: 24,
     company: "htc",
     info:
-      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+      "Lorem ipsum dolorGold plating over brass, Stack-able ring with CZ accents, Available in sizes: 6, 7, Style No. TR-097.",
     inCart: false,
     count: 0,
-    total: 0
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: "img/rings/2.jpg"
   },
   {
     id: 6,
-    title: "Vintage Iphone",
-    img: "img/product-6.png",
+    title: "Low Dome Comfort Fit",
+    img: "img/rings/6.jpg",
     price: 17,
     company: "apple",
     info:
-      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+      "It is 24k gold plated Tri-Lined Solitaire Gold Ring.It is from Singapore.",
     inCart: false,
     count: 0,
-    total: 0
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: "img/rings/2.jpg"
   },
   {
     id: 7,
-    title: "Iphone 7",
-    img: "img/product-7.png",
+    title: "Lavender Gold Ring",
+    img: "img/rings/7.jpg",
     price: 30,
     company: "apple",
     info:
-      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+      "This ring is made from 22k gold. Gold is set in 22k gold certified by BIS Hallmark, This is a hand-made product.   Lifetime exchange available in Senco stores on production of bill. Gold at 97% buyback on current value. BIS Hallmark is NOT a separate certificate. It is an inscription made on the product. The item will be delivered to you in a tamperproof package. Please inspect the package for any tampering before accepting the delivery.",
     inCart: false,
     count: 0,
-    total: 0
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: "img/rings/2.jpg"
   },
   {
     id: 8,
-    title: "Smashed Iphone",
-    img: "img/product-8.png",
+    title: "Flower Diamond Gold",
+    img: "img/rings/8.png",
     price: 2,
     company: "apple",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
     inCart: false,
     count: 0,
-    total: 0
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: "img/rings/2.jpg"
   }
 ];
 
 export const detailProduct = {
   id: 1,
   title: "Google Pixel - Black",
-  img: "img/product-1.png",
+  img: "img/rings/1.jpg",
   price: 10,
   company: "google",
   info:
     "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
   inCart: false,
   count: 0,
-  total: 0
+  total: 0,
+  itemSize: "7, 8, 9, 10",
+  galleryImg: "img/rings/2.jpg"
 };
