@@ -3,20 +3,18 @@ import React, { Component } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 
 function ProductCarousel({ galleryImgSrc }) {
+    console.log(galleryImgSrc);
     return (
         <Carousel>
-            <div>
-                <img src={galleryImgSrc} />
-                <p className="legend">Legend 1</p>
-            </div>
-            <div>
-                <img src={galleryImgSrc} />
-                <p className="legend">Legend 2</p>
-            </div>
-            <div>
-                <img src={galleryImgSrc} />
-                <p className="legend">Legend 3</p>
-            </div>
+            {galleryImgSrc.map(img => {
+                return (
+                    <div key={img.id}>
+                        <img src={img.src} alt="imgAlt" />
+                        <p className="legend">Legend 1</p>
+                    </div>
+                )
+            })}
+
         </Carousel>
     );
 }

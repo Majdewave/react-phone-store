@@ -15,7 +15,7 @@ class Details extends Component {
                 {value => {
                     // console.log(value.detailProduct);
                     const { id, company, img, info, price, title, inCart, itemSize, galleryImg } = value.detailProduct; // detailProduct from data.js
-
+                    console.log(galleryImg);
                     return (// py-5 : padding from top and bottom 
                         <DetailsContainer className="container py-5">
                             {/*title*/}
@@ -30,7 +30,10 @@ class Details extends Component {
                             {/* product info*/}
                             <div className="row">
                                 <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
-                                    <img src={img} className="img-fluid" alt="product" />
+                                    {/* <img src={img} className="img-fluid" alt="product" /> */}
+
+                                    <ProductCarousel galleryImgSrc={galleryImg} />
+
                                 </div>
                                 <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
                                     <h2>Model: {title}</h2>
@@ -53,9 +56,6 @@ class Details extends Component {
                                         some info about the product:
                                     </p>
                                     <p className="text-muted lead">{info}</p>
-
-
-                                    <ProductCarousel galleryImgSrc={galleryImg} />
 
                                     {/*buttons*/}
                                     <div>

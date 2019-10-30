@@ -77,6 +77,7 @@ code {
 .carousel {
   position: relative;
   width: 100%;
+  top: 110px;
 }
 
 .carousel * {
@@ -107,6 +108,8 @@ code {
 .carousel .thumbs-wrapper {
   margin: 20px;
   overflow: hidden;
+  position: absolute;
+  top: 329px;
 }
 
 .carousel .thumbs {
@@ -154,9 +157,11 @@ code {
 }
 
 .carousel.carousel-slider {
-  position: relative;
+  position: absolute;
   margin: 0;
   overflow: hidden;
+  top: 0;
+  width: 80% !important;
 }
 
 .carousel.carousel-slider .control-arrow {
@@ -196,6 +201,8 @@ code {
 .carousel .slider-wrapper.axis-horizontal .slider .slide {
   flex-direction: column;
   flex-flow: column;
+  background-color: #fff;
+  ;
 }
 
 .carousel .slider-wrapper.axis-vertical {

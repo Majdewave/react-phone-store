@@ -3,8 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import {Route,Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import ProductList from './components/ProductList';
 import Details from './components/Details';
 import Cart from './components/Cart';
@@ -13,24 +14,25 @@ import Modal from './components/Modal';
 
 
 class App extends Component {
-    render(){
-      return (
-    <React.Fragment>
-      <Navbar />
+  render() {
+    return (
+      <React.Fragment>
+        <Navbar />
         <Switch>
           <Route exact path="/" component={ProductList} />
           <Route path="/Details" component={Details} />
           <Route path="/cart" component={Cart} />
-          <Route  component={Default} />    
+          <Route component={Default} />
         </Switch>
+        <Footer />
 
         <Modal />
-      {/* <ProductList />
+        {/* <ProductList />
       <Details />
       <Cart />
       <Default />  "I moved this component inside the router for making navigation by swich and router" */}
-    </React.Fragment>
-      );
+      </React.Fragment>
+    );
   }
 }
 

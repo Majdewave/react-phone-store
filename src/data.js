@@ -15,7 +15,11 @@ export const storeProducts = [
     inCart: false,
     count: 0,
     total: 0,
-    itemSize: "7, 8, 9, 10"
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/rings/1.jpg", id: 1 },
+      { src: "img/rings/2.jpg", id: 2 }
+    ]
   },
   {
     id: 2,
@@ -29,7 +33,10 @@ export const storeProducts = [
     count: 0,
     total: 0,
     itemSize: "7, 8, 9, 10",
-    galleryImg: "img/rings/2.jpg"
+    galleryImg: [
+      { src: "img/rings/1.jpg", id: 1 },
+      { src: "img/rings/2.jpg", id: 2 }
+    ]
   },
   {
     id: 3,
@@ -43,7 +50,10 @@ export const storeProducts = [
     count: 0,
     total: 0,
     itemSize: "7, 8, 9, 10",
-    galleryImg: "img/rings/2.jpg"
+    galleryImg: [
+      { src: "img/rings/1.jpg", id: 1 },
+      { src: "img/rings/2.jpg", id: 2 }
+    ]
   },
   {
     id: 4,
@@ -57,7 +67,10 @@ export const storeProducts = [
     count: 0,
     total: 0,
     itemSize: "7, 8, 9, 10",
-    galleryImg: "img/rings/2.jpg"
+    galleryImg: [
+      { src: "img/rings/1.jpg", id: 1 },
+      { src: "img/rings/2.jpg", id: 2 }
+    ]
   },
   {
     id: 5,
@@ -71,7 +84,10 @@ export const storeProducts = [
     count: 0,
     total: 0,
     itemSize: "7, 8, 9, 10",
-    galleryImg: "img/rings/2.jpg"
+    galleryImg: [
+      { src: "img/rings/1.jpg", id: 1 },
+      { src: "img/rings/2.jpg", id: 2 }
+    ]
   },
   {
     id: 6,
@@ -85,7 +101,10 @@ export const storeProducts = [
     count: 0,
     total: 0,
     itemSize: "7, 8, 9, 10",
-    galleryImg: "img/rings/2.jpg"
+    galleryImg: [
+      { src: "img/rings/1.jpg", id: 1 },
+      { src: "img/rings/2.jpg", id: 2 }
+    ]
   },
   {
     id: 7,
@@ -99,7 +118,10 @@ export const storeProducts = [
     count: 0,
     total: 0,
     itemSize: "7, 8, 9, 10",
-    galleryImg: "img/rings/2.jpg"
+    galleryImg: [
+      { src: "img/rings/1.jpg", id: 1 },
+      { src: "img/rings/2.jpg", id: 2 }
+    ]
   },
   {
     id: 8,
@@ -113,7 +135,10 @@ export const storeProducts = [
     count: 0,
     total: 0,
     itemSize: "7, 8, 9, 10",
-    galleryImg: "img/rings/2.jpg"
+    galleryImg: [
+      { src: "img/rings/1.jpg", id: 1 },
+      { src: "img/rings/2.jpg", id: 2 }
+    ]
   }
 ];
 
@@ -129,5 +154,8 @@ export const detailProduct = {
   count: 0,
   total: 0,
   itemSize: "7, 8, 9, 10",
-  galleryImg: "img/rings/2.jpg"
+  galleryImg: [
+    { src: "img/rings/1.jpg", id: 1 },
+    { src: "img/rings/2.jpg", id: 2 }
+  ]
 };
