@@ -217,7 +217,197 @@ export const storeProducts = [
     galleryImg: [
       { src: "img/necklace/4.jpg", id: 1 }
     ]
-  }
+  },
+  //--------------- Earrings -------------
+  {
+    id: 13,
+    title: "Flower Diamond Gold",
+    img: "img/Earrings/1.jpg",
+    category: "Earrings",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/Earrings/1.jpg", id: 1 }
+    ]
+  },
+  {
+    id: 14,
+    title: "Flower Diamond Gold",
+    img: "img/Earrings/2.jpg",
+    category: "Earrings",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/Earrings/2.jpg", id: 1 }
+    ]
+  },
+  {
+    id: 15,
+    title: "Flower Diamond Gold",
+    img: "img/Earrings/3.jpg",
+    category: "Earrings",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/Earrings/3.jpg", id: 1 }
+    ]
+  },
+  {
+    id: 16,
+    title: "Flower Diamond Gold",
+    img: "img/Earrings/4.jpg",
+    category: "Earrings",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/Earrings/4.jpg", id: 1 }
+    ]
+  },
+  {
+    id: 17,
+    title: "Flower Diamond Gold",
+    img: "img/Earrings/5.jpg",
+    category: "Earrings",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/Earrings/5.jpg", id: 1 }
+    ]
+  },
+  {
+    id: 18,
+    title: "Flower Diamond Gold",
+    img: "img/Earrings/6.jpg",
+    category: "Earrings",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/Earrings/6.jpg", id: 1 }
+    ]
+  },
+
+  //------------------ bracelet ---------------
+  {
+    id: 19,
+    title: "Flower Diamond Gold",
+    img: "img/bracelet/1.jpg",
+    category: "bracelet",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/bracelet/1.jpg", id: 1 }
+    ]
+  },
+  {
+    id: 20,
+    title: "Flower Diamond Gold",
+    img: "img/bracelet/2.jpg",
+    category: "bracelet",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/bracelet/2.jpg", id: 1 }
+    ]
+  },
+  {
+    id: 21,
+    title: "Flower Diamond Gold",
+    img: "img/bracelet/3.jpg",
+    category: "bracelet",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/bracelet/3.jpg", id: 1 }
+    ]
+  },
+  {
+    id: 22,
+    title: "Flower Diamond Gold",
+    img: "img/bracelet/4.jpg",
+    category: "bracelet",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/bracelet/4.jpg", id: 1 }
+    ]
+  },
+  {
+    id: 23,
+    title: "Flower Diamond Gold",
+    img: "img/bracelet/5.jpg",
+    category: "bracelet",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/bracelet/5.jpg", id: 1 }
+    ]
+  },
 ];
 
 export const detailProduct = {
