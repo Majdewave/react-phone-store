@@ -127,3 +127,28 @@ footer a:hover {
 .carousel .thumb.selected, .carousel .thumb:hover {
   border: 3px solid var(--mainYellow);
 }
+
+.carousel .slide img {
+  width: 100%;
+  vertical-align: top;
+  border: 0;
+  max-width: 300px;
+}
+
+.carousel .thumbs-wrapper {
+  display: none;
+}
+
+.carousel .slide .legend {
+  display: none;
+}
+
+.carousel.carousel-slider .control-arrow {
+  top: 120px;
+  color: yellow;
+  font-size: 20px;
+  margin-top: 0;
+  padding: 7px;
+  background: rgba(0, 0, 0, 0.2);
+  height: 70px;
+}

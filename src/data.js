@@ -8,6 +8,7 @@ export const storeProducts = [
     id: 1,
     title: "LARRISSA GOLD RING",
     img: "img/rings/1.jpg",
+    category: "rings",
     price: 10,
     company: "GOOGLE",
     info:
@@ -25,6 +26,7 @@ export const storeProducts = [
     id: 2,
     title: "Pristine Fire Yellow Gold",
     img: "img/rings/2.jpg",
+    category: "rings",
     price: 16,
     company: "SAMSUNG",
     info:
@@ -42,6 +44,7 @@ export const storeProducts = [
     id: 3,
     title: "YUTIKA HEARTS GOLD RING",
     img: "img/rings/3.jpg",
+    category: "rings",
     price: 8,
     company: "htc",
     info:
@@ -59,6 +62,7 @@ export const storeProducts = [
     id: 4,
     title: "NAC 22k (916) Yellow",
     img: "img/rings/4.jpg",
+    category: "rings",
     price: 18,
     company: "htc",
     info:
@@ -76,6 +80,7 @@ export const storeProducts = [
     id: 5,
     title: "Mythili Gold Ring",
     img: "img/rings/5.jpg",
+    category: "rings",
     price: 24,
     company: "htc",
     info:
@@ -93,6 +98,7 @@ export const storeProducts = [
     id: 6,
     title: "Low Dome Comfort Fit",
     img: "img/rings/6.jpg",
+    category: "rings",
     price: 17,
     company: "apple",
     info:
@@ -110,6 +116,7 @@ export const storeProducts = [
     id: 7,
     title: "Lavender Gold Ring",
     img: "img/rings/7.jpg",
+    category: "rings",
     price: 30,
     company: "apple",
     info:
@@ -127,6 +134,7 @@ export const storeProducts = [
     id: 8,
     title: "Flower Diamond Gold",
     img: "img/rings/8.png",
+    category: "rings",
     price: 2,
     company: "apple",
     info:
@@ -139,13 +147,84 @@ export const storeProducts = [
       { src: "img/rings/1.jpg", id: 1 },
       { src: "img/rings/2.jpg", id: 2 }
     ]
+  },
+  //--------------------------------
+
+  {
+    id: 9,
+    title: "Flower Diamond Gold",
+    img: "img/necklace/1.jpeg",
+    category: "necklace",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/necklace/1.jpeg", id: 1 }
+    ]
+  },
+  {
+    id: 10,
+    title: "Flower Diamond Gold",
+    img: "img/necklace/2.jpeg",
+    category: "necklace",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/necklace/2.jpeg", id: 1 }
+    ]
+  },
+  {
+    id: 11,
+    title: "Flower Diamond Gold",
+    img: "img/necklace/3.jpg",
+    category: "necklace",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/necklace/3.jpg", id: 1 }
+    ]
+  },
+  {
+    id: 12,
+    title: "Flower Diamond Gold",
+    img: "img/necklace/4.jpg",
+    category: "necklace",
+    price: 2,
+    company: "apple",
+    info:
+      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    inCart: false,
+    count: 0,
+    total: 0,
+    itemSize: "7, 8, 9, 10",
+    galleryImg: [
+      { src: "img/necklace/4.jpg", id: 1 }
+    ]
   }
 ];
 
 export const detailProduct = {
-  id: 1,
+  id: 12,
   title: "Google Pixel - Black",
-  img: "img/rings/1.jpg",
+  img: "img/rings/4.jpg",
+  category: "rings",
   price: 10,
   company: "google",
   info:

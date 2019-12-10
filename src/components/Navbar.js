@@ -5,13 +5,14 @@ import { logo } from '../homeIcon.png';
 import styled from 'styled-components';
 
 import { ButtonContainer } from './Button';
-
 import { FaShoppingCart } from "react-icons/fa";
+import SearchPage from './searchBox';
 
 class Navbar extends Component {
     render() {
         return (
             <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5" >
+
                 <Link to="/">
                     {/* <img src={logo} alt="store" className="navbar-brfand" /> */}
                     <img src={require('../logo.svg')} className="navbar-brfand" />
@@ -24,6 +25,9 @@ class Navbar extends Component {
                     </Link>
                     </li>
                 </ul>
+
+                <SearchPage />
+
                 <Link to="/Cart" className="ml-auto">
                     <ButtonContainer>
                         <FaShoppingCart className="shoppingCartIcon" />
@@ -31,6 +35,7 @@ class Navbar extends Component {
                             My Cart
                     </span>
                     </ButtonContainer>
+
                 </Link>
             </NavWrapper>
         );
