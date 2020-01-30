@@ -44,18 +44,19 @@ class ProductList extends Component {
         return (
             <React.Fragment>
                 <div className="py-5">
-                    <Select
-                        value={selectedOption}
-                        onChange={this.handleChange}
-                        options={options}
-                        className="FilterByCatigory col-md-2"
-                        isSearchable
-                        placeholder="Choose category"
-                    />
-                    <div className="col-md-2 checkBoxAscending">
-                        Ascending
+                    <div className="FilteringContainer">
+                        <Select
+                            value={selectedOption}
+                            onChange={this.handleChange}
+                            options={options}
+                            className="FilterByCatigory col-md-2"
+                            isSearchable
+                            placeholder="Choose category"
+                        />
+                        <div className="col-md-2 checkBoxAscending">
+                            Ascending
                        <input type="checkbox" defaultChecked={false} onChange={this.handleChecked} />
-
+                        </div>
                     </div>
 
                     <div className="container">

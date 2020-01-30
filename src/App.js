@@ -1,39 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Route, Switch } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import ProductList from './components/ProductList';
-import Details from './components/Details';
-import Cart from './components/Cart';
-import Default from './components/Default';
-import Modal from './components/Modal';
+import HomePage from './HomePage.js';
 
+import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'react-netlify-identity-widget';
+import 'react-netlify-identity-widget/styles.css'
+const url = "https://majd-react-store.netlify.com/" // supply the url of your Netlify site instance with Identity enabled. VERY IMPORTANT
 
 class App extends Component {
   render() {
     return (
-      <React.Fragment>
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={ProductList} />
-          <Route path="/Details" component={Details} />
-          <Route path="/cart" component={Cart} />
-          <Route component={Default} />
-        </Switch>
-        <Footer />
-
-        <Modal />
-        {/* <ProductList />
-      <Details />
-      <Cart />
-      <Default />  "I moved this component inside the router for making navigation by swich and router" */}
-      </React.Fragment>
+      <IdentityContextProvider url={url}>{ // authontication login
+        <div>
+          <AuthStatusView>
+            <HomePage />
+          </AuthStatusView>
+        </div>
+      }</IdentityContextProvider>
     );
   }
 }
 
 export default App;
+
+
+function AuthStatusView() {
+  const identity = useIdentityContext()
+  const [dialog, setDialog] = React.useState(false)
+  const name =
+    (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.name) || 'NoName'
+  const isLoggedIn = identity && identity.isLoggedIn
+  return (
+    <div>
+      <div>
+        <button className="RNIW_btn" onClick={() => setDialog(true)}>
+          {isLoggedIn ? `Hello ${name}, Log out here!` : 'Log In'}
+        </button>
+      </div>
+      <IdentityModal
+        showDialog={dialog}
+        onCloseDialog={() => setDialog(false)}
+        onLogin={(user) => console.log('hello ', user.user_metadata)}
+        onSignup={(user) => console.log('welcome ', user.user_metadata)}
+        onLogout={() => console.log('bye ', name)}
+      />
+    </div>
+  )
+}
