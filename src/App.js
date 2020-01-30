@@ -12,7 +12,7 @@ class App extends Component {
       <IdentityContextProvider url={url}>{ // authontication login
         <div>
           <AuthStatusView>
-            <HomePage />
+
           </AuthStatusView>
         </div>
       }</IdentityContextProvider>
@@ -35,6 +35,7 @@ function AuthStatusView() {
         <button className="RNIW_btn" onClick={() => setDialog(true)}>
           {isLoggedIn ? `Hello ${name}, Log out here!` : 'Log In'}
         </button>
+        <HomePage />
       </div>
       <IdentityModal
         showDialog={dialog}
