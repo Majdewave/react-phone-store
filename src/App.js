@@ -12,7 +12,7 @@ class App extends Component {
       <IdentityContextProvider url={url}>{ // authontication login
         <div>
           <AuthStatusView>
-
+            <HomePage />
           </AuthStatusView>
         </div>
       }</IdentityContextProvider>
@@ -27,23 +27,47 @@ function AuthStatusView() {
   const identity = useIdentityContext()
   const [dialog, setDialog] = React.useState(false)
   const name =
-    (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.name) || 'NoName'
+    (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.full_name)
+    || 'NoName'
   const isLoggedIn = identity && identity.isLoggedIn
-  return (
-    <div>
+  if (isLoggedIn) {
+    return (
       <div>
+
         <button className="RNIW_btn" onClick={() => setDialog(true)}>
           {isLoggedIn ? `Hello ${name}, Log out here!` : 'Log In'}
         </button>
         <HomePage />
+
+        <IdentityModal
+          showDialog={dialog}
+          onCloseDialog={() => setDialog(false)}
+          onLogin={(user) => console.log('hello ', user.user_metadata)} //this.props.history.push("/Cart")}
+          onSignup={(user) => console.log('welcome ', user.user_metadata)}
+          onLogout={() => console.log('bye ', name)}
+        />
+
+      </div >
+    )
+  }
+  else {
+    return (
+      <div>
+        <div>
+          <button className="RNIW_btn" onClick={() => setDialog(true)}>
+            {isLoggedIn ? `Hello ${name}, Log out here!` : 'Log In'}
+          </button>
+
+          {/* <HomePage /> */}
+        </div>
+        <IdentityModal
+          showDialog={dialog}
+          onCloseDialog={() => setDialog(false)}
+          onLogin={(user) => this.props.history.push("/Cart")}
+          onSignup={(user) => console.log('welcome ', user.user_metadata)}
+          onLogout={() => console.log('bye ', name)}
+        />
       </div>
-      <IdentityModal
-        showDialog={dialog}
-        onCloseDialog={() => setDialog(false)}
-        onLogin={(user) => console.log('hello ', user.user_metadata)}
-        onSignup={(user) => console.log('welcome ', user.user_metadata)}
-        onLogout={() => console.log('bye ', name)}
-      />
-    </div>
-  )
+    )
+  }
 }
