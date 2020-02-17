@@ -36,8 +36,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/rings/1.jpg", id: 1 },
-      { src: "img/rings/2.jpg", id: 2 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -54,8 +56,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/rings/1.jpg", id: 1 },
-      { src: "img/rings/2.jpg", id: 2 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -90,8 +94,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/rings/1.jpg", id: 1 },
-      { src: "img/rings/2.jpg", id: 2 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -108,8 +114,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/rings/1.jpg", id: 1 },
-      { src: "img/rings/2.jpg", id: 2 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -126,8 +134,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/rings/1.jpg", id: 1 },
-      { src: "img/rings/2.jpg", id: 2 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -144,8 +154,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/rings/1.jpg", id: 1 },
-      { src: "img/rings/2.jpg", id: 2 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   //--------------------------------
@@ -164,7 +176,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/necklace/1.jpeg", id: 1 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -181,7 +196,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/necklace/2.jpeg", id: 1 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -198,7 +216,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/necklace/3.jpg", id: 1 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -215,7 +236,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/necklace/4.jpg", id: 1 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   //--------------- Earrings -------------
@@ -233,7 +257,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/Earrings/1.jpg", id: 1 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -250,7 +277,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/Earrings/2.jpg", id: 1 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -267,7 +297,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/Earrings/3.jpg", id: 1 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -284,7 +317,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/Earrings/4.jpg", id: 1 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -318,7 +354,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/Earrings/6.jpg", id: 1 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
 
@@ -337,7 +376,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/bracelet/1.jpg", id: 1 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -354,7 +396,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/bracelet/2.jpg", id: 1 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -371,7 +416,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/bracelet/3.jpg", id: 1 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -388,7 +436,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/bracelet/4.jpg", id: 1 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
   {
@@ -405,7 +456,10 @@ export const storeProducts = [
     total: 0,
     itemSize: "7, 8, 9, 10",
     galleryImg: [
-      { src: "img/bracelet/5.jpg", id: 1 }
+      {
+        original: 'https://picsum.photos/id/1018/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      }
     ]
   },
 ];
@@ -424,7 +478,14 @@ export const detailProduct = {
   total: 0,
   itemSize: "7, 8, 9, 10",
   galleryImg: [
-    { src: "img/rings/1.jpg", id: 1 },
-    { src: "img/rings/2.jpg", id: 2 }
+    {
+      original: 'https://picsum.photos/id/1018/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1018/250/150/',
+    },
+    {
+      original: 'https://picsum.photos/id/1015/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1015/250/150/',
+    }
+
   ]
 };

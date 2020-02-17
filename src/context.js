@@ -18,12 +18,14 @@ class ProductProvider extends Component {
         cartSubTotal: 0,
         cartTax: 0,
         cartTotal: 0,
-        itemSize: 0
+        itemSize: 0,
+        cartItemsNum: 0
     }
 
     componentDidMount() { // life cycle method to push vlues from db t array "products"
         this.setProducts(); //calling setProducts method to getting the copy of the values not the reference
     }
+
     setProducts = () => {
         let tempProducts = [];
         storeProducts.forEach(item => { // (...item : three dots means get values)
@@ -58,15 +60,22 @@ class ProductProvider extends Component {
         const price = product.price;
         product.total = price;
         product.itemSize = this.state.products.itemSize;
+        const TotalInMyCart = this.state.cartItemsNum + 1; // counts how many items added to your Cart
+
         // updating the state
         this.setState(() => {
-            return { products: tempProducts, cart: [...this.state.cart, product] };
+            return {
+                products: tempProducts,
+                cart: [...this.state.cart, product],
+                cartItemsNum: TotalInMyCart
+            };
         },
             () => {
                 this.addTotals();
             }
         );
     };
+
 
     openModal = id => {
         const product = this.getItem(id);
@@ -124,11 +133,13 @@ class ProductProvider extends Component {
         remvedProduct.count = 0;
         remvedProduct.total = 0;
 
+        const TotalInMyCart = this.state.cartItemsNum - 1;
         // and update the state
         this.setState(() => {
             return {
                 cart: [...tempCart],
-                products: [...tempProducts]
+                products: [...tempProducts],
+                cartItemsNum: TotalInMyCart
             }
         }, () => {
             this.addTotals();
@@ -180,7 +191,8 @@ class ProductProvider extends Component {
                     decrement: this.decrement,
                     removeItem: this.removeItem,
                     clearCart: this.clearCart,
-                    selectHandleChange: this.selectHandleChange
+                    selectHandleChange: this.selectHandleChange,
+                    TotalInMyCart: this.TotalInMyCart
                 }}>
                 {this.props.children}
             </ProductContext.Provider>

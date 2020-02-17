@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ButtonContainer } from './Button';
 
 import styled from 'styled-components';
-import ProductCarousel from './carousel';
+import ProductGallery from './imageGallery';
 
 
 class Details extends Component {
@@ -31,8 +31,7 @@ class Details extends Component {
                             <div className="row">
                                 <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
                                     {/* <img src={img} className="img-fluid" alt="product" /> */}
-
-                                    <ProductCarousel galleryImgSrc={galleryImg} />
+                                    <ProductGallery galleryImgSrc={galleryImg} />
 
                                 </div>
                                 <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">

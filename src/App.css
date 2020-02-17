@@ -273,3 +273,120 @@ footer a:hover {
   height: 35px;
   white-space: nowrap;
 }
+
+.navbar .settingsBar {
+  height: 39px;
+  position: relative;
+  margin-top: 12px;
+}
+
+.navbar .settingsBar .title div {
+  width: 20px;
+  height: 2px;
+  background-color: #666;
+  margin: 4px 0;
+  margin: 4px 13px 0 7px;
+}
+
+.navbar .settingsBar li.settingsItem {
+  text-align: right;
+  width: 48px;
+  height: 40px;
+  position: relative;
+  padding: 8px 8px 0px 0px;
+  border-radius: 3px;
+  border: 1px solid #dee2e6;
+}
+
+.navbar .settingsBar li.settingsItem.hasDropDown .fa {
+  color: #666;
+  position: absolute;
+  top: 13px;
+  right: 5px;
+}
+
+.navbar .settingsBar li.settingsItem:hover .dropdownHover {
+  text-align: left;
+}
+
+ul.dropdownHover li .icon {
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('/icons-sprite.png');
+}
+
+ul.dropdownHover li .icon.womenFashion {
+  background-position: 0 -3824px;
+}
+
+ul.dropdownHover li .icon.menFashion {
+  background-position: 0 -2851px;
+}
+
+ul.dropdownHover li .icon.jewelry {
+  background-position: 0 -1741px;
+}
+
+ul.dropdownHover li .icon.bagsShoes {
+  background-position: 0 -443px;
+}
+
+ul.dropdownHover li .icon.Electronics {
+  background-position: 0 -1741px;
+}
+
+.navbar .settingsBar li.settingsItem .subTitle {
+  display: inline-block;
+}
+
+.navbar .settingsBar .dropdownHover {
+  top: 35px;
+}
+
+.navbar .settingsBar .dropdownHover li {
+  width: 180px;
+}
+
+.navbar .settingsBar .dropdownHover li:hover {
+  background: #f2f2f2;
+}
+
+input.search.form-control {
+  position: relative;
+  width: auto;
+  overflow: hidden;
+  height: 40px;
+  padding: 0 0 0 15px;
+  border: 1px solid #cbcbcb;
+  border-right: 0 none;
+  border-radius: 3px;
+}
+
+.navbar .searchIcon {
+  z-index: 5;
+  width: 50px;
+  height: 40px;
+  border-radius: 0 3px 3px 0;
+  background: url(/header-sprite.png) !important;
+  background-position: 63px 8px !important;
+  position: absolute;
+  right: 16px;
+  background-color: #e62e04 !important;
+}
+
+.navbar .myCart i.myCartIcon {
+  background-repeat: no-repeat;
+  width: 33px;
+  height: 38px;
+  display: inline-block;
+  background: url(/header-sprite.png);
+  background-position: -99px -44px;
+  vertical-align: bottom;
+}
+
+.navbar .myCart:hover i.myCartIcon {
+  background-position: -99px 6px;
+}

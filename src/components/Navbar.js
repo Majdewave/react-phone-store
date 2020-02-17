@@ -8,6 +8,9 @@ import { ButtonContainer } from './Button';
 import { FaShoppingCart, FaAngleDown, FaAngleUp } from "react-icons/fa";
 import SearchPage from './searchBox';
 
+import { Dropdown } from 'react-bootstrap';
+import { ProductConsumer } from '../context';
+import x from '../context';
 
 class Navbar extends Component {
     render() {
@@ -17,8 +20,8 @@ class Navbar extends Component {
                     <ul className="col-md-7">
                         <li className="settingsItem hasDropDown col-md-3">
                             <a className="title" href="">Help</a>
-                            <FaAngleDown class="fa AngleDown"></FaAngleDown>
-                            <FaAngleUp class="fa AngleUp hide"></FaAngleUp>
+                            <FaAngleDown className="fa AngleDown"></FaAngleDown>
+                            <FaAngleUp className="fa AngleUp hide"></FaAngleUp>
                             <ul className="dropdownHover">
                                 <li><a className="subTitle" href="">Customer Service</a></li>
                                 <li><a className="subTitle" href="">Dispue & Reports</a></li>
@@ -38,9 +41,28 @@ class Navbar extends Component {
                 <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5" >
                     <Link to="/">
                         {/* <img src={logo} alt="store" className="navbar-brfand" /> */}
-                        <img src={require('../logo.svg')} className="navbar-brfand" />
+                        <img src={require('../logo.PNG')} className="navbar-brfand" />
                     </Link>
-
+                    <div className="settingsBar">
+                        <ul className="">
+                            <li className="settingsItem hasDropDown">
+                                <a className="title" href="">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </a>
+                                <FaAngleDown className="fa AngleDown"></FaAngleDown>
+                                <FaAngleUp className="fa AngleUp hide"></FaAngleUp>
+                                <ul className="dropdownHover">
+                                    <li><div className="icon womenFashion"></div> <a className="subTitle womenFashion" href="">Women's Fashion</a></li>
+                                    <li><div className="icon menFashion"></div><a className="subTitle menFashion" href="">Men's Fashion</a></li>
+                                    <li><div className="icon jewelry"></div><a className="subTitle jewelry" href="">Jewelry</a></li>
+                                    <li><div className="icon bagsShoes"></div><a className="subTitle bagsShoes" href="">Bags & Shoes</a></li>
+                                    <li><div className="icon Electronics"></div><a className="subTitle Electronics" href="">Consumer Electronics</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                     <ul className="navbar-nav align-items-center">
                         <li className="nav-items ml-5">
                             <Link to="/" className="nav-link">
@@ -51,14 +73,20 @@ class Navbar extends Component {
 
                     <SearchPage />
 
-                    <Link to="/Cart" className="ml-auto">
-                        <ButtonContainer>
-                            <FaShoppingCart className="shoppingCartIcon" />
-                            <span className='mr-2 mycartButtonText'>
-                                My Cart
-                            </span>
-                        </ButtonContainer>
+                    <Link to="/Cart" className="myCart">
+                        <i className="myCartIcon"></i>
+                        <div className="">
+                            <ProductConsumer>
+                                {value => {
+                                    const x = value.cartItemsNum;
+                                    return (
+                                        <div>{x}</div>
+                                    )
+                                }}
 
+                            </ProductConsumer>
+
+                        </div>
                     </Link>
                 </NavWrapper>
             </header>
@@ -67,20 +95,21 @@ class Navbar extends Component {
 }
 
 const NavWrapper = styled.nav`
-background:var(--mainBlue);
-border-bottom:2px solid var(--mainYellow);
+        background:#fff;
+        border-bottom:2px solid var(--mainYellow);
 .nav-link{
-    color:var(--mainYellow) !important;
-    font-size:1.3rem;
-    text-transfrom: capitalize;
-}
+                    color:var(--mainYellow) !important;
+                font-size:1.3rem;
+                text-transfrom: capitalize;
+            }
 .mycartButtonText{
-    padding-left:10px;
-    color:#fff;
-}
+                    padding - left:10px;
+                color:#fff;
+            }
 .shoppingCartIcon{
-    color:#ffd400;
-}
-`
+                    color:#ffd400;
+            }
+            `
 
 export default Navbar;
+
