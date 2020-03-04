@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 import { storeProducts, DetailProduct, detailProduct } from "./data";
 import { tsImportEqualsDeclaration } from '@babel/types';
-
+import firebase from './firebase';
 
 const ProductContext = React.createContext(); // context object
 
 
-// Prpvider
+
+// Prpvider 
 class ProductProvider extends Component {
     state = {
         products: [],//storeProducts,
@@ -23,7 +24,23 @@ class ProductProvider extends Component {
     }
 
     componentDidMount() { // life cycle method to push vlues from db t array "products"
-        this.setProducts(); //calling setProducts method to getting the copy of the values not the reference
+        this.getProductsFromFB();
+        //this.setProducts(); //calling setProducts method to getting the copy of the values not the reference
+    }
+
+    getProductsFromFB = () => {
+        const productsRef = firebase.database().ref('storeProducts');
+        productsRef.on('value', (snapshot) => {
+            let storeProducts = snapshot.val();
+            let tempProducts = [];
+            storeProducts.forEach(item => { // (...item : three dots means get values)
+                const singleItem = { ...item };
+                tempProducts = [...tempProducts, singleItem];
+            })
+            this.setState(() => {
+                return { products: tempProducts }
+            })
+        });
     }
 
     setProducts = () => {

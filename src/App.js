@@ -10,8 +10,7 @@ import Details from './components/Details';
 import Cart from './components/Cart';
 import Default from './components/Default';
 import Modal from './components/Modal';
-
-
+import firebase from './firebase';
 
 import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'react-netlify-identity-widget';
 import 'react-netlify-identity-widget/styles.css'
@@ -19,7 +18,35 @@ const url = "https://majd-react-store.netlify.com/" // supply the url of your Ne
 
 
 class App extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            words: [],
+            powers: []
+        };
+    }
+
+    componentDidMount() {
+        const wordRef = firebase.database().ref('storeProducts');
+        wordRef.on('value', (snapshot) => {
+            let words = snapshot.val();
+            let newState = [];
+            for (let word in words) {
+                newState.push({
+                    id: word,
+                    word: words[word].word
+                });
+            }
+            this.setState({
+                words: newState
+            });
+        });
+    }
+
+
     render() {
+
         return (
             //   /* rest of your app *  /
             <div>

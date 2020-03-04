@@ -8,7 +8,7 @@ import { ButtonContainer } from './Button';
 import { FaShoppingCart, FaAngleDown, FaAngleUp } from "react-icons/fa";
 import SearchPage from './searchBox';
 
-import { Dropdown } from 'react-bootstrap';
+import { Dropdown, Button } from 'react-bootstrap';
 import { ProductConsumer } from '../context';
 import x from '../context';
 
@@ -33,8 +33,21 @@ class Navbar extends Component {
                         <li className="settingsItem col-md-3">
                             <a className="title" href="">Flag/English/USD</a>
                         </li>
-                        <li className="settingsItem col-md-3">
+                        <li className="settingsItem col-md-2">
                             <a className="title" href="">Account</a>
+                            <FaAngleDown className="fa AngleDown"></FaAngleDown>
+                            <FaAngleUp className="fa AngleUp hide"></FaAngleUp>
+                            <ul className="dropdownHover">
+                                <li className="loginUser">
+                                    <Button className="button redButton">Join</Button>
+                                    <Button className="button TransparentButton">Login</Button>
+                                </li>
+                                <i className="flyout-line">&nbsp;</i>
+                                <li><a className="subTitle" href="">My Orders</a></li>
+                                <li><a className="subTitle" href="">Message Center</a></li>
+                                <li><a className="subTitle" href="">Wish List</a></li>
+                                <li><a className="subTitle" href="">My Favorite Stores</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -75,12 +88,12 @@ class Navbar extends Component {
 
                     <Link to="/Cart" className="myCart">
                         <i className="myCartIcon"></i>
-                        <div className="">
+                        <div className="counterContainer">
                             <ProductConsumer>
                                 {value => {
                                     const x = value.cartItemsNum;
                                     return (
-                                        <div>{x}</div>
+                                        <div className="counter">{x}</div>
                                     )
                                 }}
 
