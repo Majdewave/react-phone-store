@@ -1,26 +1,10 @@
 import React, { Component } from 'react';
 
-import HomePage from './HomePage.js';
-
 import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'react-netlify-identity-widget';
 import 'react-netlify-identity-widget/styles.css'
+
 const url = "https://majd-react-store.netlify.com/" // supply the url of your Netlify site instance with Identity enabled. VERY IMPORTANT
 
-class App extends Component {
-  render() {
-    return (
-      <IdentityContextProvider url={url}>{ // authontication login
-        <div>
-          <AuthStatusView>
-            <HomePage />
-          </AuthStatusView>
-        </div>
-      }</IdentityContextProvider>
-    );
-  }
-}
-
-export default App;
 
 
 function AuthStatusView() {
@@ -34,10 +18,10 @@ function AuthStatusView() {
     return (
       <div>
 
-        <button className="RNIW_btn" onClick={() => setDialog(true)}>
-          {isLoggedIn ? `Hello ${name}, Log out here!` : 'Log In'}
+        <button className="RNIW_btn userAccount" onClick={() => setDialog(true)}>
+          {isLoggedIn ? `Hello ${name}, Log out here!` : 'Sign in | Join'}
         </button>
-        <HomePage />
+
 
         <IdentityModal
           showDialog={dialog}
@@ -53,13 +37,11 @@ function AuthStatusView() {
   else {
     return (
       <div>
-        <div>
-          <button className="RNIW_btn" onClick={() => setDialog(true)}>
-            {isLoggedIn ? `Hello ${name}, Log out here!` : 'Log In'}
-          </button>
+        <button className="RNIW_btn userAccount" onClick={() => setDialog(true)}>
+          {isLoggedIn ? `Hello ${name}, Log out here!` : 'Sign in | Join'}
+        </button>
 
-          {/* <HomePage /> */}
-        </div>
+        {/* <HomePage /> */}
         <IdentityModal
           showDialog={dialog}
           onCloseDialog={() => setDialog(false)}
@@ -71,3 +53,5 @@ function AuthStatusView() {
     )
   }
 }
+
+export default AuthStatusView;

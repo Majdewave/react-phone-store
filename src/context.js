@@ -23,6 +23,8 @@ class ProductProvider extends Component {
         cartItemsNum: 0
     }
 
+
+
     componentDidMount() { // life cycle method to push vlues from db t array "products"
         this.getProductsFromFB();
         //this.setProducts(); //calling setProducts method to getting the copy of the values not the reference
@@ -42,6 +44,8 @@ class ProductProvider extends Component {
             })
         });
     }
+
+
 
     setProducts = () => {
         let tempProducts = [];

@@ -455,3 +455,9 @@ input.search.form-control {
   margin: 10px 16px 0;
   height: 0;
 }
+
+button.RNIW_btn.userAccount {
+  background-color: transparent;
+  color: #333;
+  border-color: transparent;
+}

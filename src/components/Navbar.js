@@ -7,10 +7,13 @@ import styled from 'styled-components';
 import { ButtonContainer } from './Button';
 import { FaShoppingCart, FaAngleDown, FaAngleUp } from "react-icons/fa";
 import SearchPage from './searchBox';
-
+import AuthStatusView from '../AppAuthtest.js'
 import { Dropdown, Button } from 'react-bootstrap';
 import { ProductConsumer } from '../context';
+import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'react-netlify-identity-widget';
 import x from '../context';
+
+const url = "https://majd-react-store.netlify.com/"; // supply the url of your Netlify site instance with Identity enabled. VERY IMPORTANT
 
 class Navbar extends Component {
     render() {
@@ -101,6 +104,12 @@ class Navbar extends Component {
 
                         </div>
                     </Link>
+                    <IdentityContextProvider url={url}>
+                        { // authontication login
+                            <AuthStatusView>
+                            </AuthStatusView>
+                        }
+                    </IdentityContextProvider>
                 </NavWrapper>
             </header>
         );
