@@ -4,7 +4,7 @@ import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'reac
 import 'react-netlify-identity-widget/styles.css'
 
 const url = "https://majd-react-store.netlify.com/" // supply the url of your Netlify site instance with Identity enabled. VERY IMPORTANT
-
+window.isUserAccountLoggedIn = "false";
 
 
 function AuthStatusView() {
@@ -15,9 +15,10 @@ function AuthStatusView() {
     || 'NoName'
   const isLoggedIn = identity && identity.isLoggedIn
   if (isLoggedIn) {
+    window.isUserAccountLoggedIn = "true";
+    debugger
     return (
       <div>
-
         <button className="RNIW_btn userAccount" onClick={() => setDialog(true)}>
           {isLoggedIn ? `Hello ${name}, Log out here!` : 'Sign in | Join'}
         </button>

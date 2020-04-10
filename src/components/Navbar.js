@@ -16,6 +16,7 @@ import x from '../context';
 const url = "https://majd-react-store.netlify.com/"; // supply the url of your Netlify site instance with Identity enabled. VERY IMPORTANT
 
 class Navbar extends Component {
+
     render() {
         return (
             <header>

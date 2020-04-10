@@ -32,7 +32,7 @@ class ProductProvider extends Component {
 
     getProductsFromFB = () => {
         const productsRef = firebase.database().ref('storeProducts');
-        productsRef.on('value', (snapshot) => {
+        productsRef.on('value', (snapshot) => { // .on to listen to data changes, u can use ones to read on time on load
             let storeProducts = snapshot.val();
             let tempProducts = [];
             storeProducts.forEach(item => { // (...item : three dots means get values)
@@ -42,6 +42,11 @@ class ProductProvider extends Component {
             this.setState(() => {
                 return { products: tempProducts }
             })
+        });
+
+        const ItemToUpdate = firebase.database().ref('storeProducts/0');
+        ItemToUpdate.update({
+            'info': 'CrudTest'
         });
     }
 
