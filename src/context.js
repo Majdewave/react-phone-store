@@ -44,10 +44,18 @@ class ProductProvider extends Component {
             })
         });
 
-        const ItemToUpdate = firebase.database().ref('storeProducts/0');
-        ItemToUpdate.update({
-            'info': 'CrudTest'
-        });
+        // const ItemToUpdate = firebase.database().ref('myCart/1');
+        // // ItemToUpdate.update({
+        // //     'info': 'CrudTest'
+        // // });
+
+        // ItemToUpdate.set({
+        //     title: 'Majd'
+        // }).then(() => {
+        //     console.log('Data is saved!');
+        // }).catch((e) => {
+        //     console.log('Failed.', e);
+        // });
     }
 
 
@@ -87,6 +95,20 @@ class ProductProvider extends Component {
         product.total = price;
         product.itemSize = this.state.products.itemSize;
         const TotalInMyCart = this.state.cartItemsNum + 1; // counts how many items added to your Cart
+
+
+
+        const ItemToUpdate = firebase.database().ref('myCart/0');
+        ItemToUpdate.set({
+            user: window.user,
+            id: id,
+            price: product.price,
+
+        }).then(() => {
+            console.log('Data is saved!');
+        }).catch((e) => {
+            console.log('Failed.', e);
+        });
 
         // updating the state
         this.setState(() => {

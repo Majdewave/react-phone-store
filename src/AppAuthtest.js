@@ -16,7 +16,7 @@ function AuthStatusView() {
   const isLoggedIn = identity && identity.isLoggedIn
   if (isLoggedIn) {
     window.isUserAccountLoggedIn = "true";
-    debugger
+    window.user = identity.user.email;
     return (
       <div>
         <button className="RNIW_btn userAccount" onClick={() => setDialog(true)}>
