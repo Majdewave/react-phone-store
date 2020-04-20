@@ -15,7 +15,7 @@ import firebase from './firebase';
 
 import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'react-netlify-identity-widget';
 import 'react-netlify-identity-widget/styles.css'
-const url = "https://majd-react-store.netlify.com/" // supply the url of your Netlify site instance with Identity enabled. VERY IMPORTANT
+const url = "https://majd-react-store.netlify.app" // supply the url of your Netlify site instance with Identity enabled. VERY IMPORTANT
 
 
 class App extends Component {

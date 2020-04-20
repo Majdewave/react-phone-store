@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { storeProducts, DetailProduct, detailProduct } from "./data";
 import { tsImportEqualsDeclaration } from '@babel/types';
-import firebase from './firebase';
+import firebase from 'firebase';
 
 const ProductContext = React.createContext(); // context object
 
@@ -12,6 +12,7 @@ const ProductContext = React.createContext(); // context object
 class ProductProvider extends Component {
     state = {
         products: [],//storeProducts,
+        myCartSavedItems: [],
         detailProduct: detailProduct,
         cart: [], //storeProducts,
         modalOpen: false,
@@ -20,13 +21,15 @@ class ProductProvider extends Component {
         cartTax: 0,
         cartTotal: 0,
         itemSize: 0,
-        cartItemsNum: 0
+        cartItemsNum: 0,
+        counter: 0
     }
 
 
 
-    componentDidMount() { // life cycle method to push vlues from db t array "products"
+    componentDidMount() { // life cycle method to push values from db t array "products"
         this.getProductsFromFB();
+        // this.getMyCartItemsFromDB();
         //this.setProducts(); //calling setProducts method to getting the copy of the values not the reference
     }
 
@@ -43,33 +46,20 @@ class ProductProvider extends Component {
                 return { products: tempProducts }
             })
         });
-
-        // const ItemToUpdate = firebase.database().ref('myCart/1');
-        // // ItemToUpdate.update({
-        // //     'info': 'CrudTest'
-        // // });
-
-        // ItemToUpdate.set({
-        //     title: 'Majd'
-        // }).then(() => {
-        //     console.log('Data is saved!');
-        // }).catch((e) => {
-        //     console.log('Failed.', e);
-        // });
     }
 
 
 
-    setProducts = () => {
-        let tempProducts = [];
-        storeProducts.forEach(item => { // (...item : three dots means get values)
-            const singleItem = { ...item };
-            tempProducts = [...tempProducts, singleItem];
-        })
-        this.setState(() => {
-            return { products: tempProducts }
-        })
-    };
+    // setProducts = () => {
+    //     let tempProducts = [];
+    //     storeProducts.forEach(item => { // (...item : three dots means get values)
+    //         const singleItem = { ...item };
+    //         tempProducts = [...tempProducts, singleItem];
+    //     })
+    //     this.setState(() => {
+    //         return { products: tempProducts }
+    //     })
+    // };
 
 
     // find the exact item/[roduct] by ID , search in Products array in the state. 
@@ -97,13 +87,18 @@ class ProductProvider extends Component {
         const TotalInMyCart = this.state.cartItemsNum + 1; // counts how many items added to your Cart
 
 
-
-        const ItemToUpdate = firebase.database().ref('myCart/0');
+        const ItemToUpdate = firebase.database().ref('myCart/' + this.state.counter);
+        debugger;
         ItemToUpdate.set({
             user: window.user,
             id: id,
             price: product.price,
-
+            category: product.category,
+            company: product.company,
+            img: product.img,
+            title: product.title,
+            total: product.total,
+            count: product.count
         }).then(() => {
             console.log('Data is saved!');
         }).catch((e) => {
@@ -115,7 +110,9 @@ class ProductProvider extends Component {
             return {
                 products: tempProducts,
                 cart: [...this.state.cart, product],
-                cartItemsNum: TotalInMyCart
+                cartItemsNum: TotalInMyCart,
+
+                counter: this.state.counter + 1
             };
         },
             () => {
@@ -240,6 +237,7 @@ class ProductProvider extends Component {
                     removeItem: this.removeItem,
                     clearCart: this.clearCart,
                     selectHandleChange: this.selectHandleChange,
+                    getMyCartItemsFromDB: this.getMyCartItemsFromDB,
                     TotalInMyCart: this.TotalInMyCart
                 }}>
                 {this.props.children}
