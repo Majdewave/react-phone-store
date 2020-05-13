@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ProductList from './components/ProductList';
+import HomePage from './components/HomePage'
 import Details from './components/Details';
 import Cart from './components/Cart';
 import Default from './components/Default';
@@ -35,13 +36,15 @@ class App extends Component {
                 <React.Fragment>
                     <Navbar />
                     <Switch>
-                        <Route exact path="/" component={ProductList} />
+                        <Route exact path="/" component={HomePage} />  {/* ProductList */}
                         <Route path="/Details" component={Details} />
-                        <IdentityContextProvider url={url}>{ // authontication login
+                        <Route path="/cart" component={Cart} />
+                        <Route path="/ProductList" component={ProductList} />
+                        {/* <IdentityContextProvider url={url}>{ // authontication login
                             <AuthStatusView>
                                 <Route path="/cart" component={Cart} />
                             </AuthStatusView>
-                        }</IdentityContextProvider>
+                        }</IdentityContextProvider> */}
                         <Route component={Default} />
                     </Switch>
                     <Footer />

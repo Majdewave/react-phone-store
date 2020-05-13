@@ -9,6 +9,7 @@ import { FaShoppingCart, FaAngleDown, FaAngleUp } from "react-icons/fa";
 import SearchPage from './searchBox';
 import AuthStatusView from '../AppAuthtest.js'
 import { Dropdown, Button } from 'react-bootstrap';
+import DropdownList from './DropdownList.js';
 import { ProductConsumer } from '../context';
 import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'react-netlify-identity-widget';
 import x from '../context';
@@ -70,13 +71,7 @@ class Navbar extends Component {
                                 </a>
                                 <FaAngleDown className="fa AngleDown"></FaAngleDown>
                                 <FaAngleUp className="fa AngleUp hide"></FaAngleUp>
-                                <ul className="dropdownHover">
-                                    <li><div className="icon womenFashion"></div> <a className="subTitle womenFashion" href="">Women's Fashion</a></li>
-                                    <li><div className="icon menFashion"></div><a className="subTitle menFashion" href="">Men's Fashion</a></li>
-                                    <li><div className="icon jewelry"></div><a className="subTitle jewelry" href="">Jewelry</a></li>
-                                    <li><div className="icon bagsShoes"></div><a className="subTitle bagsShoes" href="">Bags & Shoes</a></li>
-                                    <li><div className="icon Electronics"></div><a className="subTitle Electronics" href="">Consumer Electronics</a></li>
-                                </ul>
+                                <DropdownList />
                             </li>
                         </ul>
                     </div>
@@ -119,7 +114,7 @@ class Navbar extends Component {
 
 const NavWrapper = styled.nav`
         background:#fff;
-        border-bottom:2px solid var(--mainYellow);
+        box-shadow: 0 1px 4px rgba(0,0,0,.08);
 .nav-link{
                     color:var(--mainYellow) !important;
                 font-size:1.3rem;

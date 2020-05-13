@@ -13,10 +13,11 @@ function CartList({ value }) {
     productsRef.on('value', (snapshot) => { // .on to listen to data changes, u can use ones to read on time on load
         let myCartProducts = snapshot.val();
         let tempProducts = [];
+        var i = 0;
         myCartProducts.forEach(item => { // (...item : three dots means get values)
             if (item.user === window.user) { // get cart item of the spicific user
-                cart = myCartProducts;
-                debugger;
+                cart[i] = item; // myCartProducts;
+                i++;
             }
         })
     });

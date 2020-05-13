@@ -13,6 +13,9 @@ class ProductProvider extends Component {
     state = {
         products: [],//storeProducts,
         myCartSavedItems: [],
+        flashDeals: ["loading"],
+        selectionTop: ["loading"],
+        FeaturedBrands: ["loading"],
         detailProduct: detailProduct,
         cart: [], //storeProducts,
         modalOpen: false,
@@ -22,15 +25,17 @@ class ProductProvider extends Component {
         cartTotal: 0,
         itemSize: 0,
         cartItemsNum: 0,
-        counter: 0
+        counter: 0,
     }
 
 
 
     componentDidMount() { // life cycle method to push values from db t array "products"
         this.getProductsFromFB();
-        // this.getMyCartItemsFromDB();
-        //this.setProducts(); //calling setProducts method to getting the copy of the values not the reference
+        this.getMyCartItemsFromDB();
+        this.getFlashDealsFromDB();
+        this.getSelectionTopFromDB();
+        this.getFeaturedBrandsFromDb();
     }
 
     getProductsFromFB = () => {
@@ -48,18 +53,60 @@ class ProductProvider extends Component {
         });
     }
 
+    getMyCartItemsFromDB() {
+        const productsRef = firebase.database().ref('myCart');
+        productsRef.on('value', (snapshot) => { // .on to listen to data changes, u can use ones to read on time on load
+            let myCartProducts = snapshot.val();
+            let tempProducts = [];
+            var i = 1;
+            myCartProducts.forEach(item => { // (...item : three dots means get values)
+                if (item.user === window.user) { // get cart item of the spicific user
+                    tempProducts[i] = item; // myCartProducts;
+                    i++;
+                }
+            })
+            this.setState(() => {
+                return {
+                    cart: tempProducts,
+                    cartItemsNum: i
+                }
+            })
+        });
 
+    }
+    getFlashDealsFromDB() {
+        const productsRef = firebase.database().ref('flash-deals');
+        let tempProducts = [];
+        productsRef.once('value', (snapshot) => { // .on to listen to data changes, u can use ones to read on time on load
+            let storeProducts = snapshot.val();
 
-    // setProducts = () => {
-    //     let tempProducts = [];
-    //     storeProducts.forEach(item => { // (...item : three dots means get values)
-    //         const singleItem = { ...item };
-    //         tempProducts = [...tempProducts, singleItem];
-    //     })
-    //     this.setState(() => {
-    //         return { products: tempProducts }
-    //     })
-    // };
+            this.setState(() => {
+                return { flashDeals: storeProducts }
+            })
+        })
+    }
+    getSelectionTopFromDB() {
+        const productsRef = firebase.database().ref('selectionTop');
+        let tempProducts = [];
+        productsRef.once('value', (snapshot) => { // .on to listen to data changes, u can use ones to read on time on load
+            let storeProducts = snapshot.val();
+
+            this.setState(() => {
+                return { selectionTop: storeProducts }
+            })
+        })
+    }
+    getFeaturedBrandsFromDb() {
+        const productsRef = firebase.database().ref('FeaturedBrands');
+        let tempProducts = [];
+        productsRef.once('value', (snapshot) => { // .on to listen to data changes, u can use ones to read on time on load
+            let storeProducts = snapshot.val();
+
+            this.setState(() => {
+                return { FeaturedBrands: storeProducts }
+            })
+        })
+    }
 
 
     // find the exact item/[roduct] by ID , search in Products array in the state. 
@@ -87,7 +134,7 @@ class ProductProvider extends Component {
         const TotalInMyCart = this.state.cartItemsNum + 1; // counts how many items added to your Cart
 
 
-        const ItemToUpdate = firebase.database().ref('myCart/' + this.state.counter);
+        const ItemToUpdate = firebase.database().ref('myCart/' + this.state.cartItemsNum);
         debugger;
         ItemToUpdate.set({
             user: window.user,
@@ -100,9 +147,9 @@ class ProductProvider extends Component {
             total: product.total,
             count: product.count
         }).then(() => {
-            console.log('Data is saved!');
+            console.log('Add to card Data is saved!');
         }).catch((e) => {
-            console.log('Failed.', e);
+            console.log('Add to card Data Failed.', e);
         });
 
         // updating the state
@@ -112,7 +159,7 @@ class ProductProvider extends Component {
                 cart: [...this.state.cart, product],
                 cartItemsNum: TotalInMyCart,
 
-                counter: this.state.counter + 1
+                counter: this.state.counter + 1 // index in the database 0,1,2...
             };
         },
             () => {
