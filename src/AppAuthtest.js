@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'react-netlify-identity-widget';
 import 'react-netlify-identity-widget/styles.css'
-
+import { ProductConsumer } from './context';
 const url = "https://majd-react-store.netlify.app" // supply the url of your Netlify site instance with Identity enabled. VERY IMPORTANT
 window.isUserAccountLoggedIn = "false";
+window.userName = "";
 
 
 function AuthStatusView() {
@@ -15,30 +16,32 @@ function AuthStatusView() {
     || 'NoName'
   const isLoggedIn = identity && identity.isLoggedIn
   if (isLoggedIn) {
+    debugger;
     window.isUserAccountLoggedIn = "true";
     window.user = identity.user.email;
-    return (
-      <div>
-        <button className="RNIW_btn userAccount" onClick={() => setDialog(true)}>
-          {isLoggedIn ? `Hello ${name}, Log out here!` : 'Sign in | Join'}
-        </button>
+    window.userName = name;
 
+    return (
+      <React.Fragment>
+        <button className="RNIW_btn userAccount loggedIn" onClick={() => setDialog(true)}>
+          {/* {isLoggedIn ? `Hi, ${name}` : 'Sign in | Join'} */}
+          {isLoggedIn ? `LogOut!` : 'Sign in | Join'}
+        </button>
 
         <IdentityModal
           showDialog={dialog}
           onCloseDialog={() => setDialog(false)}
-          onLogin={(user) => console.log('hello ', user.user_metadata)} //this.props.history.push("/Cart")}
+          onLogin={(user) => console.log('hello ', user.user_metadata)}
           onSignup={(user) => console.log('welcome ', user.user_metadata)}
           onLogout={() => console.log('bye ', name)}
         />
-
-      </div >
+      </React.Fragment>
     )
   }
   else {
     return (
-      <div>
-        <button className="RNIW_btn userAccount" onClick={() => setDialog(true)}>
+      <React.Fragment>
+        <button className="RNIW_btn userAccount loggedOut" onClick={() => setDialog(true)}>
           {isLoggedIn ? `Hello ${name}, Log out here!` : 'Sign in | Join'}
         </button>
 
@@ -46,13 +49,15 @@ function AuthStatusView() {
         <IdentityModal
           showDialog={dialog}
           onCloseDialog={() => setDialog(false)}
-          onLogin={(user) => this.props.history.push("/Cart")}
+          onLogin={() => { setDialog(false); window.location.reload() }} // true
+          // onLogin={(user) => console.log('hi ', user.user_metadata)
           onSignup={(user) => console.log('welcome ', user.user_metadata)}
           onLogout={() => console.log('bye ', name)}
         />
-      </div>
+      </React.Fragment>
     )
   }
 }
+
 
 export default AuthStatusView;

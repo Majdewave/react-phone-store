@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 import { storeProducts, DetailProduct, detailProduct } from "./data";
 import { tsImportEqualsDeclaration } from '@babel/types';
 import firebase from 'firebase';
+import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'react-netlify-identity-widget';
 
 const ProductContext = React.createContext(); // context object
-
-
 
 // Prpvider 
 class ProductProvider extends Component {
@@ -26,6 +25,8 @@ class ProductProvider extends Component {
         itemSize: 0,
         cartItemsNum: 0,
         counter: 0,
+        isLoggedIn: false,
+        userName: "loading" // initial user name for loading before get the data
     }
 
 
@@ -37,6 +38,7 @@ class ProductProvider extends Component {
         this.getSelectionTopFromDB();
         this.getFeaturedBrandsFromDb();
     }
+
 
     getProductsFromFB = () => {
         const productsRef = firebase.database().ref('storeProducts');
@@ -68,7 +70,9 @@ class ProductProvider extends Component {
             this.setState(() => {
                 return {
                     cart: tempProducts,
-                    cartItemsNum: i
+                    cartItemsNum: i,
+                    isLoggedIn: window.isUserAccountLoggedIn,
+                    userName: window.userName
                 }
             })
         });

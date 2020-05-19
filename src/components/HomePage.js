@@ -9,6 +9,8 @@ import FlashDeals from './HomePage/FlashDeals';
 import AuthStatusView from '../AppAuthtest.js'
 import firebase from 'firebase';
 import { ProductConsumer } from '../context';
+
+import Loader from './HomePage/loader.js'
 import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'react-netlify-identity-widget';
 
 const url = "https://majd-react-store.netlify.app";
@@ -62,30 +64,80 @@ class HomePage extends Component {
                             </ul>
                         </div>
                     </div>
+
                     <div className="userDetails subContainer">
                         <span className="avatar">
                             <img src="img/icons/avatar.png" alt="avatar" />
                         </span>
-                        <span className="text">Welcome to iExpress</span>
-                        <div className="login-status">
-                            <span className="join-btn">
-                                <IdentityContextProvider url={url}>
-                                    { // authontication login
-                                        <AuthStatusView>
-                                        </AuthStatusView>
-                                    }
-                                </IdentityContextProvider>
-                            </span>
-                        </div>
+                        <ProductConsumer>
+                            {value => {
+                                var isLogged = value.isLoggedIn;
+                                var userName = value.userName;
+                                if (userName == "loading") {
+                                    return (
+                                        <Loader />
+                                    )
+                                }
+                                if (isLogged == "true") {
+                                    return (
+                                        <React.Fragment>
+                                            <span className="text">Hi, {userName}</span>
+                                            <div className="login-status">
+                                                <span className="join-btn">
+                                                    <IdentityContextProvider url={url}>
+                                                        { // authontication login
+                                                            <AuthStatusView>
+                                                            </AuthStatusView>
+                                                        }
+                                                    </IdentityContextProvider>
+                                                </span>
+                                            </div>
+                                            <div className="userFeatures col-md-12">
+                                                <div className="col-md-4 icon">
+                                                    <img src="img/icons/account.png" />
+                                                    <span>Account</span>
+                                                </div>
+                                                <div className="col-md-4 icon">
+                                                    <img src="img/icons/chat.png" />
+                                                    <span>Messages</span>
+                                                </div>
+                                                <div className="col-md-4 icon">
+                                                    <img src="img/icons/orders.png" />
+                                                    <span>Orders</span>
+                                                </div>
+                                            </div>
+                                        </React.Fragment>
+                                    )
+                                }
+                                else {
+                                    return (
+                                        <React.Fragment>
+                                            <span className="text">Welcome to iExpress {userName}</span>
+                                            <div className="login-status">
+                                                <span className="join-btn">
+                                                    <IdentityContextProvider url={url}>
+                                                        { // authontication login
+                                                            <AuthStatusView>
+                                                            </AuthStatusView>
+                                                        }
+                                                    </IdentityContextProvider>
+                                                </span>
+                                            </div>
+                                        </React.Fragment>
+                                    )
+                                }
+                            }}
+                        </ProductConsumer>
                     </div>
                 </div>
 
 
-                <div className="SaleContainer">
+
+                {/* <div className="SaleContainer">
                     <div className="bgSaleAnimation">
                         <Countdown date={`${year}-12-24T00:00:00`} />
                     </div>
-                </div>
+                </div> */}
                 <div className="middleContainer">
                     <FlashDeals />
                 </div>

@@ -12,7 +12,6 @@ import { Dropdown, Button } from 'react-bootstrap';
 import DropdownList from './DropdownList.js';
 import { ProductConsumer } from '../context';
 import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'react-netlify-identity-widget';
-import x from '../context';
 
 const url = "https://majd-react-store.netlify.app"; // supply the url of your Netlify site instance with Identity enabled. VERY IMPORTANT
 
@@ -44,8 +43,36 @@ class Navbar extends Component {
                             <FaAngleUp className="fa AngleUp hide"></FaAngleUp>
                             <ul className="dropdownHover">
                                 <li className="loginUser">
-                                    <Button className="button redButton">Join</Button>
-                                    <Button className="button TransparentButton">Login</Button>
+                                    <ProductConsumer>
+                                        {value => {
+                                            var isLogged = value.isLoggedIn;
+                                            var userName = value.userName;
+                                            if (isLogged == "true") {
+                                                return (
+                                                    <React.Fragment>
+                                                        <div className="userDetails subContainer">
+                                                            <span className="avatar">
+                                                                <img src="img/icons/avatar.png" alt="avatar" />
+                                                            </span>
+                                                            <span className="text">Welcome Back,{userName}</span>
+                                                        </div>
+                                                        {/* <Button className="button redButton">Join</Button> */}
+                                                        {/* <Button className="button TransparentButton">Login</Button> */}
+                                                    </React.Fragment>
+                                                )
+                                            }
+                                            else {
+                                                return <Button className="button TransparentButton">Login</Button>
+                                            }
+                                        }}
+                                    </ProductConsumer>
+
+                                    <IdentityContextProvider url={url}>
+                                        { // authontication login
+                                            <AuthStatusView>
+                                            </AuthStatusView>
+                                        }
+                                    </IdentityContextProvider>
                                 </li>
                                 <i className="flyout-line">&nbsp;</i>
                                 <li><a className="subTitle" href="">My Orders</a></li>
@@ -56,7 +83,7 @@ class Navbar extends Component {
                         </li>
                     </ul>
                 </div>
-                <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5" >
+                <NavWrapper className="navbar navbar-expand-sm navbar-dark" >
                     <Link to="/">
                         {/* <img src={logo} alt="store" className="navbar-brfand" /> */}
                         <img src={require('../logo.PNG')} className="navbar-brfand" />
@@ -75,13 +102,13 @@ class Navbar extends Component {
                             </li>
                         </ul>
                     </div>
-                    <ul className="navbar-nav align-items-center">
+                    {/* <ul className="navbar-nav align-items-center">
                         <li className="nav-items ml-5">
                             <Link to="/" className="nav-link">
                                 Product
                     </Link>
                         </li>
-                    </ul>
+                    </ul> */}
 
                     <SearchPage />
 
