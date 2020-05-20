@@ -26,7 +26,7 @@ class ProductProvider extends Component {
         cartItemsNum: 0,
         counter: 0,
         isLoggedIn: false,
-        userName: "loading" // initial user name for loading before get the data
+        userName: "loading"
     }
 
 

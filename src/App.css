@@ -423,7 +423,7 @@ ul.dropdownHover li .icon.Electronics {
 }
 
 .navbar .settingsBar .dropdownHover li {
-  width: 180px;
+  /* width: 180px; */
 }
 
 .navbar .settingsBar .dropdownHover li:hover {

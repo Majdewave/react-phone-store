@@ -78,7 +78,7 @@ class HomePage extends Component {
                                         <Loader />
                                     )
                                 }
-                                if (isLogged == "true") {
+                                if (isLogged == true) {
                                     return (
                                         <React.Fragment>
                                             <span className="text">Hi, {userName}</span>
