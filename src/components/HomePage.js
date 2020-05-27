@@ -6,6 +6,7 @@ import Countdown from './CountDownTime';
 import FeaturedBrands from './HomePage/FeaturedBrands';
 import SelectionTop from './HomePage/SelectionTop';
 import FlashDeals from './HomePage/FlashDeals';
+import MoreToLOve from './HomePage/MoreToLove';
 import AuthStatusView from '../AppAuthtest.js'
 import firebase from 'firebase';
 import { ProductConsumer } from '../context';
@@ -144,6 +145,7 @@ class HomePage extends Component {
                 <div className="bottomContainer">
                     <SelectionTop />
                     <FeaturedBrands />
+                    <MoreToLOve />
                 </div>
 
             </div>

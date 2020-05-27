@@ -588,11 +588,13 @@ button.RNIW_btnLink.forgotPasswordLink {
   position: relative;
   background: rgba(0, 0, 0, .04);
   padding: 15px 60px 15px 60px;
+  font-family: OpenSans-Extrabold, Open Sans, Arial, Helvetica, sans-serif, SimSun, 宋体;
 }
 
 .homepageContainer .topContainer {
   min-height: 100px;
   padding: 6px;
+  margin: 0px 8px 0px 8px;
 }
 
 .homepageContainer .subContainer {
@@ -665,13 +667,17 @@ button.RNIW_btnLink.forgotPasswordLink {
 }
 
 .homepageContainer .userDetails {
-  width: 240px;
+  width: 230px;
   height: 460px;
   overflow: hidden;
   padding: 16px;
   background: rgba(0, 123, 255, 0.05);
   z-index: 3;
   border-radius: 8px;
+}
+
+.homepageContainer .userDetails .userFeatures {
+  padding: 0;
 }
 
 .homepageContainer .userDetails.subContainer .avatar {
@@ -886,8 +892,9 @@ button.RNIW_btnLink.forgotPasswordLink {
 }
 
 .bottomContainer .Top-Selection.subContainer, .bottomContainer .Featured-Brands.subContainer {
-  width: 49.33%;
+  width: 48.33%;
   height: 270px;
+  margin: 0 8px;
 }
 
 .Top-Selection .Category, .Featured-Brands .Category {
@@ -988,8 +995,73 @@ button.RNIW_btnLink.forgotPasswordLink {
   width: 274px;
 }
 
+.moreToLoveContainer {
+  padding: 0;
+}
+
+.moreToLoveContainer .header {
+  padding: 24px 12px 0px;
+}
+
+.moreToLoveContainer .header .title {
+  margin-bottom: 0;
+  color: #000;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.moreToLoveContainer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.moreToLoveContainer ul .item .text {
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: 900;
+  font-style: italic;
+  text-align: center;
+  padding: 8px 3px 8px 0px;
+}
+
+.moreToLoveContainer ul .item .text .isSale {
+  float: left;
+  background-color: #ff0042;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 200;
+  width: 43px;
+  height: 18px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.moreToLoveContainer ul .item {
+  padding: 8px;
+  max-height: 290px;
+  padding-bottom: 34px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.moreToLoveContainer ul .item div {
+  padding: 8px;
+  background: #fff;
+  max-height: 290px;
+  border-radius: 8px;
+}
+
+.moreToLoveContainer ul .item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  min-height: 170px;
+  max-height: 17px;
+}
+
 .middleContainer {
-  margin: 15px 0 15px 0;
+  margin: 15px 8px 15px 8px;
   padding: 6px;
 }
 

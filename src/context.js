@@ -15,6 +15,7 @@ class ProductProvider extends Component {
         flashDeals: ["loading"],
         selectionTop: ["loading"],
         FeaturedBrands: ["loading"],
+        MoreToLove: ["loading"],
         detailProduct: detailProduct,
         cart: [], //storeProducts,
         modalOpen: false,
@@ -37,6 +38,7 @@ class ProductProvider extends Component {
         this.getFlashDealsFromDB();
         this.getSelectionTopFromDB();
         this.getFeaturedBrandsFromDb();
+        this.getMoreToLoveProductsListFromDb();
     }
 
 
@@ -111,6 +113,19 @@ class ProductProvider extends Component {
             })
         })
     }
+    getMoreToLoveProductsListFromDb() {
+        const productsRef = firebase.database().ref('MoreToLoveProductsList');
+        let tempProducts = [];
+        productsRef.once('value', (snapshot) => { // .on to listen to data changes, u can use ones to read on time on load
+            let storeProducts = snapshot.val();
+
+            this.setState(() => {
+                return { MoreToLove: storeProducts }
+            })
+        })
+    }
+
+
 
 
     // find the exact item/[roduct] by ID , search in Products array in the state. 
@@ -252,7 +267,7 @@ class ProductProvider extends Component {
 
     addTotals = () => {
         let subTotal = 0;
-        this.state.cart.map(item => (subTotal += item.total)); // looping on the array (this.state.cart)
+        this.state.cart.map(item => (subTotal += this.props.total)); // looping on the array (this.state.cart)
         const tempTax = subTotal * 0.1;  // i chosed tax= 0.1 
         const tax = parseFloat(tempTax.toFixed(2));
         const total = subTotal + tax;
