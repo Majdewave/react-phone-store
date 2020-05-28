@@ -7,7 +7,7 @@ import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'reac
 
 const ProductContext = React.createContext(); // context object
 
-// Prpvider 
+// Prpvider
 class ProductProvider extends Component {
     state = {
         products: [],//storeProducts,
@@ -18,6 +18,7 @@ class ProductProvider extends Component {
         MoreToLove: ["loading"],
         detailProduct: detailProduct,
         cart: [], //storeProducts,
+        cartDbKeys: [],
         modalOpen: false,
         modalProduct: detailProduct,
         cartSubTotal: 0,
@@ -62,13 +63,15 @@ class ProductProvider extends Component {
         productsRef.on('value', (snapshot) => { // .on to listen to data changes, u can use ones to read on time on load
             let myCartProducts = snapshot.val();
             let tempProducts = [];
-            var i = 1;
-            myCartProducts.forEach(item => { // (...item : three dots means get values)
-                if (item.user === window.user) { // get cart item of the spicific user
-                    tempProducts[i] = item; // myCartProducts;
-                    i++;
-                }
-            })
+            var i = 0;
+            if (myCartProducts != null) {
+                myCartProducts.forEach(item => { // (...item : three dots means get values)
+                    if (item.user === window.user) { // get cart item of the spicific user
+                        tempProducts[i] = item; // myCartProducts;
+                        i++;
+                    }
+                })
+            }
             this.setState(() => {
                 return {
                     cart: tempProducts,
@@ -128,7 +131,7 @@ class ProductProvider extends Component {
 
 
 
-    // find the exact item/[roduct] by ID , search in Products array in the state. 
+    // find the exact item/[roduct] by ID , search in Products array in the state.
     getItem = (id) => {
         const product = this.state.products.find(item => item.id === id);
         return product;
@@ -154,7 +157,6 @@ class ProductProvider extends Component {
 
 
         const ItemToUpdate = firebase.database().ref('myCart/' + this.state.cartItemsNum);
-        debugger;
         ItemToUpdate.set({
             user: window.user,
             id: id,
@@ -175,7 +177,7 @@ class ProductProvider extends Component {
         this.setState(() => {
             return {
                 products: tempProducts,
-                cart: [...this.state.cart, product],
+                //   cart: [...this.state.cart, product],
                 cartItemsNum: TotalInMyCart,
 
                 counter: this.state.counter + 1 // index in the database 0,1,2...
@@ -237,14 +239,19 @@ class ProductProvider extends Component {
         let tempCart = [...this.state.cart];
 
         tempCart = tempCart.filter(item => item.id !== id); //filter items in the cart object and return the items that do not match the current id
-        const index = tempProducts.indexOf(this.getItem(id));
-        const remvedProduct = tempProducts[index];
 
-        remvedProduct.inCart = false;
-        remvedProduct.count = 0;
-        remvedProduct.total = 0;
+        //  const index = tempProducts.indexOf(this.getItem(id));
+        // const remvedProduct = tempProducts[index];
+
+        // remvedProduct.inCart = false;
+        // remvedProduct.count = 0;
+        // remvedProduct.total = 0;
 
         const TotalInMyCart = this.state.cartItemsNum - 1;
+
+        const ItemToremove = firebase.database().ref('myCart');
+        ItemToremove.remove();
+
         // and update the state
         this.setState(() => {
             return {
@@ -255,7 +262,15 @@ class ProductProvider extends Component {
         }, () => {
             this.addTotals();
         })
+
+        const ItemToUpdate = firebase.database().ref('myCart');
+        ItemToUpdate.set(tempCart).then(() => {
+            console.log('Add to card Data is saved!');
+        }).catch((e) => {
+            console.log('Add to card Data Failed.', e);
+        });
     }
+
     clearCart = () => {
         this.setState(() => {
             return { cart: [] }
@@ -268,7 +283,7 @@ class ProductProvider extends Component {
     addTotals = () => {
         let subTotal = 0;
         this.state.cart.map(item => (subTotal += this.props.total)); // looping on the array (this.state.cart)
-        const tempTax = subTotal * 0.1;  // i chosed tax= 0.1 
+        const tempTax = subTotal * 0.1;  // i chosed tax= 0.1
         const tax = parseFloat(tempTax.toFixed(2));
         const total = subTotal + tax;
         // now we want to have them in the state

@@ -14,12 +14,14 @@ function CartList({ value }) {
         let myCartProducts = snapshot.val();
         let tempProducts = [];
         var i = 0;
-        myCartProducts.forEach(item => { // (...item : three dots means get values)
-            if (item.user === window.user) { // get cart item of the spicific user
-                cart[i] = item; // myCartProducts;
-                i++;
-            }
-        })
+        if (myCartProducts != null) {
+            myCartProducts.forEach(item => { // (...item : three dots means get values)
+                if (item.user === window.user) { // get cart item of the spicific user
+                    cart[i] = item; // myCartProducts;
+                    i++;
+                }
+            })
+        }
     });
 
     return (

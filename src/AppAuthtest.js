@@ -16,7 +16,6 @@ function AuthStatusView() {
     || 'NoName'
   const isLoggedIn = identity && identity.isLoggedIn
   if (isLoggedIn) {
-    debugger;
     window.isUserAccountLoggedIn = true;
     window.user = identity.user.email;
     window.userName = name;
