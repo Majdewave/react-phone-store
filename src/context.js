@@ -212,6 +212,8 @@ class ProductProvider extends Component {
         product.count += 1;
         product.total = product.total + product.price;
 
+        this.removeItem(id, true)
+
         // and update the state
         this.setState(() => { return { cart: [...tempCart] } }, () => { this.addTotals() });
 
@@ -222,10 +224,10 @@ class ProductProvider extends Component {
         const selectedProduct = tempCart.find(item => item.id === id); // get the spicific item by id
         const index = tempCart.indexOf(selectedProduct);
         const product = tempCart[index]; // get the product in the spicific index
-        product.count = product.count - 1;
 
-        if (product.count === 0) {
-            this.removeItem(id)
+        if (product.count !== 1) {
+            product.count = product.count - 1;
+            this.removeItem(id, true)
         }
         else {
             product.total = product.count * product.price;
@@ -234,12 +236,16 @@ class ProductProvider extends Component {
         }
     }
 
-    removeItem = (id) => {
+    removeItem = (id, FromDrecrement) => {
         let tempProducts = [...this.state.products];
         let tempCart = [...this.state.cart];
 
-        tempCart = tempCart.filter(item => item.id !== id); //filter items in the cart object and return the items that do not match the current id
+        if (FromDrecrement) {
+        }
+        else {
+            tempCart = tempCart.filter(item => item.id !== id); //filter items in the cart object and return the items that do not match the current id
 
+        }
         //  const index = tempProducts.indexOf(this.getItem(id));
         // const remvedProduct = tempProducts[index];
 
@@ -272,10 +278,14 @@ class ProductProvider extends Component {
     }
 
     clearCart = () => {
+
+        const ItemToremove = firebase.database().ref('myCart');
+        ItemToremove.remove();
+
         this.setState(() => {
             return { cart: [] }
         }, () => {
-            this.setProducts(); // get the new fresh copy values from the objects from db
+            //this.setProducts(); // get the new fresh copy values from the objects from db
             this.addTotals();
         });
     }
