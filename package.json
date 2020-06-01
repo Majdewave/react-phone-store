@@ -11,9 +11,8 @@
     "@reach/visually-hidden": "^0.7.2",
     "bootstrap": "^4.4.1",
     "cordova-plugin-avaudiosession": "^1.1.2",
-    "firebase": "^7.9.1",
+    "firebase": "^7.14.6",
     "firestore": "^1.1.6",
-    "firestore-export-import": "^0.4.0",
     "glyphicons": "^0.2.0",
     "mdbreact": "^4.24.0",
     "netlify-identity-widget": "^1.5.6",
@@ -57,5 +56,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "firestore-export-import": "^0.4.0"
   }
 }

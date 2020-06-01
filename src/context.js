@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-
+import firebase, { firestore } from 'firebase';
 import { storeProducts, DetailProduct, detailProduct } from "./data";
 import { tsImportEqualsDeclaration } from '@babel/types';
-import firebase from 'firebase';
+
 import IdentityModal, { useIdentityContext, IdentityContextProvider } from 'react-netlify-identity-widget';
 
 const ProductContext = React.createContext(); // context object
+
 
 // Prpvider
 class ProductProvider extends Component {
@@ -56,6 +57,32 @@ class ProductProvider extends Component {
                 return { products: tempProducts }
             })
         });
+
+
+        const db = firebase.firestore();
+
+        db.collection('myCart')
+            .add({
+                created: firebase.firestore.FieldValue.serverTimestamp(),
+                users: [{ name: 'majd Test' }]
+            });
+
+
+        db.collection('myCart').get().then((snapshot) => {
+
+            snapshot.docs.forEach(doc => {
+                let items = doc.data();
+
+                /* Make data suitable for rendering */
+                items = JSON.stringify(items);
+
+                /* Update the components state with query result */
+                this.setState({ items: items })
+            });
+
+        });
+
+
     }
 
     getMyCartItemsFromDB() {

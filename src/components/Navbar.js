@@ -102,14 +102,6 @@ class Navbar extends Component {
                             </li>
                         </ul>
                     </div>
-                    {/* <ul className="navbar-nav align-items-center">
-                        <li className="nav-items ml-5">
-                            <Link to="/" className="nav-link">
-                                Product
-                    </Link>
-                        </li>
-                    </ul> */}
-
                     <SearchPage />
 
                     <Link to="/Cart" className="myCart">
@@ -127,12 +119,12 @@ class Navbar extends Component {
 
                         </div>
                     </Link>
-                    <IdentityContextProvider url={url}>
+                    {/* <IdentityContextProvider url={url}>
                         { // authontication login
                             <AuthStatusView>
                             </AuthStatusView>
                         }
-                    </IdentityContextProvider>
+                    </IdentityContextProvider> */}
                 </NavWrapper>
             </header>
         );
