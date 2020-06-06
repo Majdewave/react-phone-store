@@ -64,7 +64,7 @@ class ProductProvider extends Component {
         db.collection('myCart')
             .add({
                 created: firebase.firestore.FieldValue.serverTimestamp(),
-                users: [{ name: 'majd Test' }]
+                users: [{ name: 'majd Test new' }]
             });
 
 
@@ -169,6 +169,10 @@ class ProductProvider extends Component {
         this.setState(() => {
             return { detailProduct: product }
         })
+    }
+
+    addToWishList = () => {
+        alert("Add to wish list");
     }
     addToCart = (id) => {
         let tempProducts = [...this.state.products]; // this gonna give ass the access to all the products
@@ -347,6 +351,7 @@ class ProductProvider extends Component {
                 value={{
                     ...this.state,
                     handleDetail: this.handleDetail,
+                    addToWishList: this.addToWishList,
                     addToCart: this.addToCart,
                     openModal: this.openModal,
                     closeModal: this.closeModal,

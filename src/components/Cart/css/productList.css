@@ -1,0 +1,17 @@
+.custom-category {
+    background-color: #f2f2f2;
+    padding-top: 0px !important;
+}
+
+.FilteringContainer {
+    float: left;
+}
+
+.ProductsContainer {
+    float: right;
+}
+
+.padding {
+    padding-left: 30px;
+    padding-right: 30px;
+}

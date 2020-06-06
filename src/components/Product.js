@@ -7,23 +7,30 @@ import { conditionalExpression } from '@babel/types';
 
 import { FaShoppingCart } from "react-icons/fa";
 import PropTypes from 'prop-types';
-//import { CartDB } from './Cart/CartDB'
+import './Cart/css/product.css';
 
 class Product extends Component {
     render() {
         const { id, title, img, price, inCart } = this.props.product;
         return (
-            <ProductWrapper className="col-9 mx-auto com-md-6 col-lg-3 my-3">
+            <div className="col-9 mx-auto com-md-6 col-lg-3 my-3">
                 <div className="card">
                     <ProductConsumer>
                         {/* productConsuemr is the way to access values globaly. now we are updating product details by click */}
-                        {(value) => (<div className="img-container p-5"
+                        {(value) => (<div className="img-container"
                             onClick={() =>
                                 value.handleDetail(id)
                             }>
                             <Link to="/details">
                                 <img src={img} className="card-img-top" alt="product" />
                             </Link>
+                            <span className="wish-List-icon"
+                                onClick={() => value.addToWishList()}
+                            >
+                                <img alt="" className="cartHover" src="img/icons/wishList.png" />
+                                <img alt="" className="hover" src="img/icons/wishList-hover.png" />
+                                <img alt="" className="submit" src="img/icons/wishList-submit.png" />
+                            </span>
                             {/* if inCart value from data.js tre then return true(means disabled = true), if it false then return false */}
                             <button className="cart-btn" disabled={inCart ? true : false}
                                 onClick={() => {
@@ -38,17 +45,25 @@ class Product extends Component {
                         </div>)}
                     </ProductConsumer>
                     {/* card footer */}
-                    <div className="card-footer d-flex justify-content-between">
-                        <p className="align-left-center mb-0">
+                    <div className="card-footer">
+                        <p className="item-title">
                             {title}
                         </p>
-                        <h5 className="text-blue font-italic mb-0">
+                        <h5 className="cost">
                             <span className="mr-1">$</span>
                             {price}
                         </h5>
+                        <div className='shipping-value'>FreeShipping</div>
+                        <img className="rating-icon" src="img/icons/star-icon.png" alt="" />
+                        <div className="rating">4.9</div>
+                        <div className="sold-num">
+                            <span className="soldItemsNum">279</span>
+                            <span>Sold</span>
+                        </div>
+                        <div className="store-name">Zohra Official Store</div>
                     </div>
                 </div>
-            </ProductWrapper>
+            </div>
         );
     }
 }
@@ -66,53 +81,53 @@ Product.propTypes = { // validation by react propTypes
     }).isRequired
 }
 
-const ProductWrapper = styled.div`
-.card{
-border-color:var(--mainWhite);
-transition: all 1s linear;
-}
-.card-footer{
-    background:transparent;
-    border-top:transparent;
-    transition: all 1s linear;
-}
-&:hover{
-    .card{
-        border:0.04rem solid #ffd400;
-        box-shadow: 2px 2px 5px 0px #ffd400;
-    }
-    .card-footer{
-        background:rgba(274,274,274);
-    }
-}
-.img-container{
-    position:relative;
-    overflow:hidden;
-}
-.img-container:hover .card-img-top{
-    transform: scale(1.2); 
-}
-.card-img-top{
-    transition: all 1s linear;
-}
-.cart-btn{
-    position:absolute;
-    bottom:0;
-    right:0;
-    padding:0.2rem 0.4rem;
-    background:var(--mainGold);
-    border:0;
-    color:var(--mainWhite);
-    font-size:1.4rem;
-    border-radius:0.5rem 0 0 0;
-    transform:translate(100%,100%);
-    transition: all 1s linear;
-}
-.img-container:hover .cart-btn{
-    transform:translate(0,0);
-}
-.cart-btn:hover{
-    color:var(--mainBlue);
-    cursor:pointer;
-}
-`
+    // const ProductWrapper = styled.div`
+    // .card{
+    // border-color:var(--mainWhite);
+    // transition: all 1s linear;
+    // }
+    // .card-footer{
+    //     background:transparent;
+    //     border-top:transparent;
+    //     transition: all 1s linear;
+    // }
+    // &:hover{
+    //     .card{
+    //         border:0.04rem solid #ffd400;
+    //         box-shadow: 2px 2px 5px 0px #ffd400;
+    //     }
+    //     .card-footer{
+    //         background:rgba(274,274,274);
+    //     }
+    // }
+    // .img-container{
+    //     position:relative;
+    //     overflow:hidden;
+    // }
+    // .img-container:hover .card-img-top{
+    //     transform: scale(1.2); 
+    // }
+    // .card-img-top{
+    //     transition: all 1s linear;
+    // }
+    // .cart-btn{
+    //     position:absolute;
+    //     bottom:0;
+    //     right:0;
+    //     padding:0.2rem 0.4rem;
+    //     background:var(--mainGold);
+    //     border:0;
+    //     color:var(--mainWhite);
+    //     font-size:1.4rem;
+    //     border-radius:0.5rem 0 0 0;
+    //     transform:translate(100%,100%);
+    //     transition: all 1s linear;
+    // }
+    // .img-container:hover .cart-btn{
+    //     transform:translate(0,0);
+    // }
+    // .cart-btn:hover{
+    //     color:var(--mainBlue);
+    //     cursor:pointer;
+    // }
+    //`

@@ -5,6 +5,7 @@ import { readdirSync } from 'fs';
 import Title from './Title';
 import { ProductConsumer } from '../context';
 import Select from 'react-select';
+import './Cart/css/productList.css';
 
 
 
@@ -43,50 +44,51 @@ class ProductList extends Component {
         const { sortByPrice } = "";
         return (
             <React.Fragment>
-                <div className="py-5">
-                    <div className="FilteringContainer">
-                        <Select
-                            value={selectedOption}
-                            onChange={this.handleChange}
-                            options={options}
-                            className="FilterByCatigory col-md-2"
-                            isSearchable
-                            placeholder="Choose category"
-                        />
-                        <div className="col-md-2 checkBoxAscending">
-                            Ascending
+                <div className="py-5 container custom-category col-md-12">
+                    <div className='row'>
+                        <div className="FilteringContainer col-md-2">
+                            <Select
+                                value={selectedOption}
+                                onChange={this.handleChange}
+                                options={options}
+                                className="FilterByCatigory col-md-2"
+                                isSearchable
+                                placeholder="Choose category"
+                            />
+                            <div className="col-md-2 checkBoxAscending">
+                                Ascending
                        <input type="checkbox" defaultChecked={false} onChange={this.handleChecked} />
+                            </div>
                         </div>
-                    </div>
-
-                    <div className="container">
-                        <Title name="Our" title="products" />
-
-                        <div className="row">
-                            {/* get data from provider which set in index.js */}
-                            <ProductConsumer>
-                                {value => {
-                                    // looping on Products object to return products
-                                    if (this.state.isChecked) {
-                                        value.products.sort((a, b) => a.price - b.price);
-                                    }
-                                    else {
-                                        value.products.sort((a, b) => b.price - a.price);
-                                    }
-                                    return value.products.map(product => {
-                                        //  this.test();
-
-                                        if (product.category == this.state.selectedOption.value) {
-
-                                            return <Product key={product.id} product={product} />
+                        <div className="padding"></div>
+                        <div className="ProductsContainer col-md-9">
+                            <Title name="Our" title="products" />
+                            <div className="row">
+                                {/* get data from provider which set in index.js */}
+                                <ProductConsumer>
+                                    {value => {
+                                        // looping on Products object to return products
+                                        if (this.state.isChecked) {
+                                            value.products.sort((a, b) => a.price - b.price);
                                         }
-                                        if (this.state.selectedOption.value == undefined || this.state.selectedOption.value == "0") {
-                                            return <Product key={product.id} product={product} />
+                                        else {
+                                            value.products.sort((a, b) => b.price - a.price);
                                         }
+                                        return value.products.map(product => {
+                                            //  this.test();
 
-                                    });
-                                }}
-                            </ProductConsumer>
+                                            if (product.category == this.state.selectedOption.value) {
+
+                                                return <Product key={product.id} product={product} />
+                                            }
+                                            if (this.state.selectedOption.value == undefined || this.state.selectedOption.value == "0") {
+                                                return <Product key={product.id} product={product} />
+                                            }
+
+                                        });
+                                    }}
+                                </ProductConsumer>
+                            </div>
                         </div>
                     </div>
                 </div>
