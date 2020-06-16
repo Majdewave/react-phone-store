@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 
+import Loader from './loader';
 function FeaturedBrandsItem(item) {
-    return (
-        <React.Fragment>
+
+    if (item.value == "loading") {
+        return <Loader />
+    }
+    else {
+        return (<React.Fragment>
             <div className="Category col-md-6">
                 <div className="CategoryItem">
                     <img src={item.value.img} alt="" />
@@ -15,7 +20,10 @@ function FeaturedBrandsItem(item) {
                 <div>US $7.53</div>
             </div>
         </React.Fragment>
-    );
+        );
+    }
+
 }
+
 
 export default FeaturedBrandsItem;

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import { ProductConsumer } from "../../context";
 import SelectionTopItem from './SelectionTopItem';
-import Loader from './loader';
 
 class SelectionTop extends Component {
     render() {
@@ -18,12 +17,7 @@ class SelectionTop extends Component {
                         const { selectionTop } = value;
                         return (
                             selectionTop.map(item => {
-                                if (selectionTop[0] == "loading") {
-                                    return <Loader />
-                                }
-                                else {
-                                    return <SelectionTopItem value={item} />
-                                }
+                                return <SelectionTopItem value={item} />
                             })
                         )
                     }}

@@ -15,7 +15,6 @@ class Details extends Component {
                 {value => {
                     // console.log(value.detailProduct);
                     const { id, company, img, info, price, title, inCart, itemSize, galleryImg } = value.detailProduct; // detailProduct from data.js
-                    console.log(galleryImg);
                     return (// py-5 : padding from top and bottom 
                         <DetailsContainer className="container py-5">
                             {/*title*/}

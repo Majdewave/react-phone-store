@@ -115,7 +115,7 @@
     display: block;
     background-color: #fff;
     border-radius: 50%;
-    padding: 9px 8px;
+    padding: 3px 8px;
     position: absolute;
     bottom: 40px;
     right: 15px;
@@ -123,23 +123,39 @@
 }
 
 .ProductsContainer .card .wish-List-icon:hover .cartHover {
-    display: none !important;
+    display: none;
+}
+
+.ProductsContainer .card .wish-List-icon .hover {
+    display: none;
 }
 
 .ProductsContainer .card .wish-List-icon:hover .hover {
     display: block !important;
+    margin-top: 6px;
 }
 
-.ProductsContainer .card .cartHover, .ProductsContainer .card .hover, .ProductsContainer .card .submit {
+/* .ProductsContainer .card .cartHover, .ProductsContainer .card .hover, .ProductsContainer .card .submit {
     display: none;
-}
+} */
 
 .ProductsContainer .card:hover .wish-List-icon {
     display: block;
 }
 
+/*
 .ProductsContainer .card:hover .wish-List-icon .cartHover {
     display: block;
+}
+*/
+
+.ProductsContainer .card:active .wish-List-icon .submit {
+    display: block;
+    margin-top: 6px;
+}
+
+.ProductsContainer .card:active .wish-List-icon .hover {
+    display: none !important;
 }
 
 .ProductsContainer .card .wish-List-icon img {

@@ -66,7 +66,7 @@ class ProductList extends Component {
                             <div className="row">
                                 {/* get data from provider which set in index.js */}
                                 <ProductConsumer>
-                                    {value => {
+                                    {(value) => {
                                         // looping on Products object to return products
                                         if (this.state.isChecked) {
                                             value.products.sort((a, b) => a.price - b.price);

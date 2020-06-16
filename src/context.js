@@ -27,9 +27,10 @@ class ProductProvider extends Component {
         cartTotal: 0,
         itemSize: 0,
         cartItemsNum: 0,
+        wishListItemIndex: 0,
         counter: 0,
         isLoggedIn: false,
-        userName: "loading"
+        userName: "loading",
     }
 
 
@@ -58,7 +59,7 @@ class ProductProvider extends Component {
             })
         });
 
-
+        // firestore db 
         const db = firebase.firestore();
 
         db.collection('myCart')
@@ -84,6 +85,8 @@ class ProductProvider extends Component {
 
 
     }
+
+
 
     getMyCartItemsFromDB() {
         const productsRef = firebase.database().ref('myCart');
@@ -148,11 +151,14 @@ class ProductProvider extends Component {
         let tempProducts = [];
         productsRef.once('value', (snapshot) => { // .on to listen to data changes, u can use ones to read on time on load
             let storeProducts = snapshot.val();
-
+        }).then(() => {
+            console.log('MoreToLoveProduct have been loaded!');
             this.setState(() => {
                 return { MoreToLove: storeProducts }
             })
-        })
+        }).catch((e) => {
+            console.log('Error getting MoreToLoveProduct', e);
+        });
     }
 
 
@@ -171,9 +177,47 @@ class ProductProvider extends Component {
         })
     }
 
-    addToWishList = () => {
-        alert("Add to wish list");
+    addToWishList = (ID) => {
+        let tempProducts = [...this.state.products];
+        const index = tempProducts.indexOf(this.getItem(ID));
+        const product = tempProducts[index];
+
+        if (product.wishListActive == true) {
+            product.wishListActive = false;
+        }
+        else {
+            product.wishListActive = true;
+        }
+
+        var wishListItemIndex = index;
+
+        const ItemToUpdate = firebase.database().ref('storeProducts/' + wishListItemIndex);
+        ItemToUpdate.set({
+            category: product.category,
+            company: product.company,
+            count: product.count,
+            id: product.id,
+            img: product.img,
+            inCart: product.inCart,
+            info: product.info,
+            itemSize: product.itemSize,
+            price: product.price,
+            total: product.total,
+            wishListActive: product.wishListActive,
+        }).then(() => {
+            console.log('Add to card Data is saved!');
+        }).catch((e) => {
+            console.log('Add to card Data Failed.', e);
+        });
+
+        // updating the state
+        this.setState(() => {
+            return {
+                products: tempProducts
+            };
+        });
     }
+
     addToCart = (id) => {
         let tempProducts = [...this.state.products]; // this gonna give ass the access to all the products
         const index = tempProducts.indexOf(this.getItem(id));

@@ -8,40 +8,42 @@ import { conditionalExpression } from '@babel/types';
 import { FaShoppingCart } from "react-icons/fa";
 import PropTypes from 'prop-types';
 import './Cart/css/product.css';
+import WishList from './WishList';
 
 class Product extends Component {
     render() {
-        const { id, title, img, price, inCart } = this.props.product;
+        const { id, title, img, price, inCart, wishListActive } = this.props.product;
+
         return (
             <div className="col-9 mx-auto com-md-6 col-lg-3 my-3">
-                <div className="card">
+                <div className="card" id={id}>
                     <ProductConsumer>
                         {/* productConsuemr is the way to access values globaly. now we are updating product details by click */}
-                        {(value) => (<div className="img-container"
+                        {value => (<div className='img-container'
                             onClick={() =>
                                 value.handleDetail(id)
                             }>
                             <Link to="/details">
                                 <img src={img} className="card-img-top" alt="product" />
                             </Link>
-                            <span className="wish-List-icon"
-                                onClick={() => value.addToWishList()}
+                            <span className={"wish-List-icon"}
+                                onClick={() =>
+                                    value.addToWishList(id)
+
+                                }
                             >
-                                <img alt="" className="cartHover" src="img/icons/wishList.png" />
-                                <img alt="" className="hover" src="img/icons/wishList-hover.png" />
-                                <img alt="" className="submit" src="img/icons/wishList-submit.png" />
+
+                                <WishList returnIcon={wishListActive} />
                             </span>
-                            {/* if inCart value from data.js tre then return true(means disabled = true), if it false then return false */}
-                            <button className="cart-btn" disabled={inCart ? true : false}
+                            {/*   <button className="cart-btn" disabled={inCart ? true : false}
                                 onClick={() => {
                                     value.addToCart(id);
                                     value.openModal(id);
                                 }}>
-                                {/* if inCart = true */}
                                 {inCart ? (
                                     <p className="text-capitalize mb-0" disabled>
                                         in Cart </p>) : (<i className="">No font Awesome icon</i> && <FaShoppingCart />)}
-                            </button>
+                                </button>*/}
                         </div>)}
                     </ProductConsumer>
                     {/* card footer */}
@@ -78,6 +80,7 @@ Product.propTypes = { // validation by react propTypes
         img: PropTypes.string,
         price: PropTypes.number,
         inCart: PropTypes.bool
+
     }).isRequired
 }
 

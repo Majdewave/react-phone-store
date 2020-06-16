@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import { ProductConsumer } from "../../context";
-import Loader from './loader';
 import MoreToLoveItem from './MoreToLoveItem';
 
 class MoreToLove extends Component {
@@ -18,17 +17,16 @@ class MoreToLove extends Component {
                             const { MoreToLove } = value;
                             return (
                                 MoreToLove.map(item => {
-                                    if (MoreToLove[0] == "loading") {
-                                        return <Loader />
-                                    }
-                                    else {
-                                        return <MoreToLoveItem value={item} />
-                                    }
+                                    // if (MoreToLove[0] == "loading") {
+                                    //     return <Loader />
+                                    // }
+                                    //  else {
+                                    return <MoreToLoveItem value={item} key={value.id} />
+                                    //   }
                                 })
                             )
                         }}
                     </ProductConsumer>
-
                 </ul>
             </div>
         );

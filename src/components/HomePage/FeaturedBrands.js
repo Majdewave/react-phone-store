@@ -19,12 +19,7 @@ class FeaturedBrands extends Component {
                         const { FeaturedBrands } = value;
                         return (
                             FeaturedBrands.map(item => {
-                                if (FeaturedBrands[0] == "loading") {
-                                    return <Loader />
-                                }
-                                else {
-                                    return <FeaturedBrandsItem value={item} />
-                                }
+                                return <FeaturedBrandsItem value={item} />
                             })
                         )
                     }}
