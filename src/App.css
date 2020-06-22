@@ -1105,3 +1105,87 @@ button.RNIW_btnLink.forgotPasswordLink {
 .loader img {
   width: 8%;
 }
+
+.sideBarContainer {
+  color: #fff;
+  background-color: #2d3154;
+  width: 360px;
+  height: 100%;
+  display: block;
+  position: fixed;
+  right: -320px;
+  top: 0;
+  z-index: 2;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  ;
+}
+
+.sideBarContainer.active {
+  right: 0px;
+}
+
+.sideBarContainer .toolItem {
+  width: 40px;
+  height: 50px;
+  text-align: center;
+  vertical-align: baseline;
+  font-size: 23px;
+  padding-top: 6px;
+}
+
+.sideBarContainer .ProductsMenu.toolItem {
+  padding-top: 0;
+}
+
+.sideBarContainer .bottom {
+  position: absolute;
+  bottom: 10px;
+}
+
+.sideBarContainer .sale {
+  height: 144px;
+}
+
+.sideBarContainer .toolItem:hover {
+  background-color: #0088ff;
+  cursor: pointer;
+}
+
+.sideBarContainer .closeSideBar {
+  right: -320px;
+}
+
+.sideBarContainer .openSideBar {
+  right: 0px;
+}
+
+.sideBarContainer .sideBarContent {
+  width: 315px;
+  height: 100%;
+  display: inline-block;
+  background-color: #2b2e49;
+  padding-top: 20px;
+  overflow: auto;
+}
+
+.sideBarContainer .sideBarTools {
+  width: 40px;
+  /* float: right; */
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.sideBarContainer .wishListItem {
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.sideBarContainer .wishListItem img {
+  width: 100%;
+}

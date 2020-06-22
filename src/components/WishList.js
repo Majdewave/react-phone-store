@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 function WishList({ returnIcon }) {
     if (returnIcon == true) {
-        debugger;
         return (
             <img alt="" className="submit12" src="img/icons/wishList-submit.png" />
         );

@@ -39,8 +39,6 @@ class ProductList extends Component {
 
     render() {
         const { selectedOption } = this.state;
-
-
         const { sortByPrice } = "";
         return (
             <React.Fragment>
