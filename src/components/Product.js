@@ -13,29 +13,29 @@ import WishList from './WishList';
 class Product extends Component {
     render() {
         const { id, title, img, price, inCart, wishListActive } = this.props.product;
-
         return (
             <div className="col-9 mx-auto com-md-6 col-lg-3 my-3">
                 <div className="card" id={id}>
                     <ProductConsumer>
                         {/* productConsuemr is the way to access values globaly. now we are updating product details by click */}
-                        {value => (<div className='img-container'
-                            onClick={() =>
-                                value.handleDetail(id)
-                            }>
-                            <Link to="/details">
-                                <img src={img} className="card-img-top" alt="product" />
-                            </Link>
-                            <span className={"wish-List-icon"}
+                        {value => (
+                            <div className='img-container'
                                 onClick={() =>
-                                    value.addToWishList(id)
+                                    value.handleDetail(id)
+                                }>
 
-                                }
-                            >
+                                <Link to="/details">
+                                    <img src={img} className="card-img-top" alt="product" />
+                                </Link>
+                                <span className={"wish-List-icon"}
+                                    onClick={() =>
+                                        value.addToWishList(id)
 
-                                <WishList returnIcon={wishListActive} />
-                            </span>
-                            {/*   <button className="cart-btn" disabled={inCart ? true : false}
+                                    }
+                                >
+                                    <WishList storeProduct={this.props.product} wishList={value.wishList} />
+                                </span>
+                                {/*   <button className="cart-btn" disabled={inCart ? true : false}
                                 onClick={() => {
                                     value.addToCart(id);
                                     value.openModal(id);
@@ -44,7 +44,7 @@ class Product extends Component {
                                     <p className="text-capitalize mb-0" disabled>
                                         in Cart </p>) : (<i className="">No font Awesome icon</i> && <FaShoppingCart />)}
                                 </button>*/}
-                        </div>)}
+                            </div>)}
                     </ProductConsumer>
                     {/* card footer */}
                     <div className="card-footer">
@@ -65,7 +65,7 @@ class Product extends Component {
                         <div className="store-name">Zohra Official Store</div>
                     </div>
                 </div>
-            </div>
+            </div >
         );
     }
 }
@@ -83,6 +83,7 @@ Product.propTypes = { // validation by react propTypes
 
     }).isRequired
 }
+
 
     // const ProductWrapper = styled.div`
     // .card{

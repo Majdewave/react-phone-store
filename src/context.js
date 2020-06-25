@@ -194,49 +194,60 @@ class ProductProvider extends Component {
         }
 
         var wishListItemIndex = index;
+        var filteredWishList;
+        var IswishListItemExist = false;
+        var itemIndexToRemove = 0;
+        if (this.state.wishList["length"] > 0) {
+            this.state.wishList.forEach(item => {
+                if (item.id === ID) {
+                    IswishListItemExist = true;
+                    filteredWishList = this.state.wishList.filter(item => item.id !== ID);
+                }
+            });
+        }
+        if (!IswishListItemExist) {
+            const ItemToUpdate = firebase.database().ref('wishList/' + this.state.wishListIndex);
+            ItemToUpdate.set({
+                id: product.id,
+                user: window.user
 
-        // const ItemToUpdate = firebase.database().ref('storeProducts/' + wishListItemIndex);
-        // ItemToUpdate.set({
-        //     category: product.category,
-        //     company: product.company,
-        //     count: product.count,
-        //     id: product.id,
-        //     img: product.img,
-        //     inCart: product.inCart,
-        //     info: product.info,
-        //     itemSize: product.itemSize,
-        //     price: product.price,
-        //     total: product.total,
-        //     wishListActive: product.wishListActive,
-        // }).then(() => {
-        //     console.log('Add to card Data is saved!');
-        // }).catch((e) => {
-        //     console.log('Add to card Data Failed.', e);
-        // });
+            }).then(() => {
+                console.log('Add to wishList is saved!');
+            }).catch((e) => {
+                console.log('Add to wishList Failed.', e);
+            });
 
-        const ItemToUpdate = firebase.database().ref('wishList/' + this.state.wishListIndex);
-        ItemToUpdate.set({
-            id: product.id,
-            user: window.user
+            // updating the state
+            this.setState(() => {
+                return {
+                    // products: tempProducts
+                    wishListIndex: this.state.wishListIndex + 1,
+                };
+            });
+        }
+        else {
+            const ItemToremove = firebase.database().ref('wishList');
+            ItemToremove.remove();
 
-        }).then(() => {
-            console.log('Add to wishList is saved!');
-        }).catch((e) => {
-            console.log('Add to wishList Failed.', e);
-        });
+            const ItemToUpdate = firebase.database().ref('wishList');
+            ItemToUpdate.set(filteredWishList).then(() => {
+                console.log('remove from wishList Data is saved!');
+            }).catch((e) => {
+                console.log('remove from wishList Data Failed.', e);
+            });
 
-        // updating the state
-        this.setState(() => {
-            return {
-                // products: tempProducts
-                wishListIndex: this.state.wishListIndex + 1
-            };
-        });
+            this.setState(() => {
+                return {
+                    // products: tempProducts
+                    wishList: filteredWishList,
+                };
+            });
+
+        }
     }
 
     getWishListFromFB = () => {
         const productsRef = firebase.database().ref('wishList').orderByChild("user").equalTo(window.user)
-        debugger;
         productsRef.on('value', (snapshot) => { // .on to listen to data changes, u can use ones to read on time on load
             let storeProducts = snapshot.val();
             let tempProducts = [];

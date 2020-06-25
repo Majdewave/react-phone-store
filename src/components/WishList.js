@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
-function WishList({ returnIcon }) {
+function WishList(props) {
+    var returnIcon = false;
+    if (props.wishList["length"] > 0) {
+        props.wishList.forEach(element => {
+            if (element.id == props.storeProduct.id) {
+                returnIcon = true;
+            }
+        });
+    }
     if (returnIcon == true) {
         return (
             <img alt="" className="submit12" src="img/icons/wishList-submit.png" />

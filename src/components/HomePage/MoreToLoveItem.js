@@ -4,7 +4,6 @@ import Loader from './loader';
 
 function MoreToLoveItem(item) {
     if (item.value == "loading") {
-        debugger;
         return <Loader />
     }
     else {
