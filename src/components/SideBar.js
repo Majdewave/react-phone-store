@@ -4,7 +4,7 @@ import ReactTooltip from 'react-tooltip';
 import { AiFillEdit } from "react-icons/ai";
 import { FiHeart, FiClock, FiShare2, FiArrowUpCircle } from "react-icons/fi";
 import { ProductConsumer } from '../context';
-
+import Loader from './HomePage/loader';
 class SideBar extends Component {
     state = {
         active: false
@@ -43,14 +43,17 @@ class SideBar extends Component {
                         {value => {
                             var isLogged = value.isLoggedIn;
                             //  if (isLogged == "true") {
-                            return value.products.map(product => {
-                                return (
-                                    <div className="wishListItem col-md-6">
-                                        <img src={product.img} alt="" />
-                                        <div className="WishListIemCost"></div>
-                                    </div>
-
-                                )
+                            return value.wishList.map(item => {
+                                return value.products.map(product => { // get id from wishlist to get the product from Products obj
+                                    if (item.id === product.id) {
+                                        return (
+                                            <div className="wishListItem col-md-6">
+                                                <img src={product.img} alt="" />
+                                                <div className="WishListIemCost">{product.price}</div>
+                                            </div>
+                                        )
+                                    }
+                                })
                             })
                             //  }
                         }
