@@ -11,14 +11,15 @@ const ProductContext = React.createContext(); // context object
 // Prpvider
 class ProductProvider extends Component {
     state = {
-        products: [],//storeProducts,
+        products: ["loading"],//storeProducts,
         myCartSavedItems: [],
         flashDeals: ["loading"],
         selectionTop: ["loading"],
         FeaturedBrands: ["loading"],
         MoreToLove: ["loading"],
+        WishListSideBarObj: ["loading"],
         wishList: [],
-        detailProduct: detailProduct,
+        detailProduct: [],
         cart: [], //storeProducts,
         cartDbKeys: [],
         modalOpen: false,
@@ -59,7 +60,10 @@ class ProductProvider extends Component {
                 tempProducts = [...tempProducts, singleItem];
             })
             this.setState(() => {
-                return { products: tempProducts }
+                return {
+                    products: tempProducts,
+                    detailProduct: tempProducts
+                }
             })
         });
 
@@ -176,9 +180,7 @@ class ProductProvider extends Component {
 
     handleDetail = (id) => {
         const product = this.getItem(id); // get the spicific Item which you clicked and update the detailProduct object in data.js with the new product details.
-        this.setState(() => {
-            return { detailProduct: product }
-        })
+        return product;
     }
 
     addToWishList = (ID) => {
@@ -247,23 +249,25 @@ class ProductProvider extends Component {
     }
 
     getWishListFromFB = () => {
-        const productsRef = firebase.database().ref('wishList').orderByChild("user").equalTo(window.user)
-        productsRef.on('value', (snapshot) => { // .on to listen to data changes, u can use ones to read on time on load
-            let storeProducts = snapshot.val();
-            let tempProducts = [];
-            if (storeProducts) {
-                storeProducts.forEach(item => { // (...item : three dots means get values)
-                    const singleItem = { ...item };
-                    tempProducts = [...tempProducts, singleItem];
-                })
-                this.setState(() => {
-                    return {
-                        wishList: tempProducts,
-                        wishListIndex: tempProducts.length
-                    }
-                })
-            }
-        });
+        if (window.user !== undefined) {
+            const productsRef = firebase.database().ref('wishList').orderByChild("user").equalTo(window.user)
+            productsRef.on('value', (snapshot) => { // .on to listen to data changes, u can use ones to read on time on load
+                let storeProducts = snapshot.val();
+                let tempProducts = [];
+                if (storeProducts) {
+                    storeProducts.forEach(item => { // (...item : three dots means get values)
+                        const singleItem = { ...item };
+                        tempProducts = [...tempProducts, singleItem];
+                    })
+                    this.setState(() => {
+                        return {
+                            wishList: tempProducts,
+                            wishListIndex: tempProducts.length
+                        }
+                    })
+                }
+            });
+        }
     }
 
     addToCart = (id) => {
@@ -453,6 +457,9 @@ class ProductProvider extends Component {
                     clearCart: this.clearCart,
                     selectHandleChange: this.selectHandleChange,
                     getMyCartItemsFromDB: this.getMyCartItemsFromDB,
+                    getWishListFromFB: this.getWishListFromFB,
+                    getProductsFromFB: this.getProductsFromFB,
+
                     TotalInMyCart: this.TotalInMyCart
                 }}>
                 {this.props.children}

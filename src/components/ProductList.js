@@ -7,6 +7,7 @@ import { ProductConsumer } from '../context';
 import Select from 'react-select';
 import './Cart/css/productList.css';
 
+import SideBar from './SideBar';
 
 
 const options = [
@@ -43,6 +44,7 @@ class ProductList extends Component {
         return (
             <React.Fragment>
                 <div className="py-5 container custom-category col-md-12">
+                    <SideBar />
                     <div className='row'>
                         <div className="FilteringContainer col-md-2">
                             <Select

@@ -24,7 +24,7 @@ class Product extends Component {
                                     value.handleDetail(id)
                                 }>
 
-                                <Link to="/details">
+                                <Link to={"/details?id=" + id}>
                                     <img src={img} className="card-img-top" alt="product" />
                                 </Link>
                                 <span className={"wish-List-icon"}
