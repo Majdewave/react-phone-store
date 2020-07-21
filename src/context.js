@@ -49,9 +49,11 @@ class ProductProvider extends Component {
         this.getWishListFromFB();
     }
 
-
     getProductsFromFB = () => {
         const productsRef = firebase.database().ref('storeProducts');
+        // productsRef.child('0').child('itemSize').on('value', (snapshot) => { // .on to listen to data changes, u can use ones to read on time on load
+        //     let test = snapshot.val();
+        // });
         productsRef.on('value', (snapshot) => { // .on to listen to data changes, u can use ones to read on time on load
             let storeProducts = snapshot.val();
             let tempProducts = [];
@@ -67,7 +69,7 @@ class ProductProvider extends Component {
             })
         });
 
-        // firestore db 
+        // firestore db
         const db = firebase.firestore();
 
         db.collection('myCart')
@@ -88,13 +90,8 @@ class ProductProvider extends Component {
                 /* Update the components state with query result */
                 this.setState({ items: items })
             });
-
         });
-
-
     }
-
-
 
     getMyCartItemsFromDB() {
         const productsRef = firebase.database().ref('myCart');
@@ -184,67 +181,69 @@ class ProductProvider extends Component {
     }
 
     addToWishList = (ID) => {
-        let tempProducts = [...this.state.products];
-        const index = tempProducts.indexOf(this.getItem(ID));
-        const product = tempProducts[index];
+        if (window.user !== undefined) {
+            let tempProducts = [...this.state.products];
+            const index = tempProducts.indexOf(this.getItem(ID));
+            const product = tempProducts[index];
 
-        if (product.wishListActive == true) {
-            product.wishListActive = false;
-        }
-        else {
-            product.wishListActive = true;
-        }
+            if (product.wishListActive == true) {
+                product.wishListActive = false;
+            }
+            else {
+                product.wishListActive = true;
+            }
 
-        var wishListItemIndex = index;
-        var filteredWishList;
-        var IswishListItemExist = false;
-        var itemIndexToRemove = 0;
-        if (this.state.wishList["length"] > 0) {
-            this.state.wishList.forEach(item => {
-                if (item.id === ID) {
-                    IswishListItemExist = true;
-                    filteredWishList = this.state.wishList.filter(item => item.id !== ID);
-                }
-            });
-        }
-        if (!IswishListItemExist) {
-            const ItemToUpdate = firebase.database().ref('wishList/' + this.state.wishListIndex);
-            ItemToUpdate.set({
-                id: product.id,
-                user: window.user
+            var wishListItemIndex = index;
+            var filteredWishList;
+            var IswishListItemExist = false;
+            var itemIndexToRemove = 0;
+            if (this.state.wishList["length"] > 0) {
+                this.state.wishList.forEach(item => {
+                    if (item.id === ID) {
+                        IswishListItemExist = true;
+                        filteredWishList = this.state.wishList.filter(item => item.id !== ID);
+                    }
+                });
+            }
+            if (!IswishListItemExist) {
+                const ItemToUpdate = firebase.database().ref('wishList/' + this.state.wishListIndex);
+                ItemToUpdate.set({
+                    id: product.id,
+                    user: window.user
 
-            }).then(() => {
-                console.log('Add to wishList is saved!');
-            }).catch((e) => {
-                console.log('Add to wishList Failed.', e);
-            });
+                }).then(() => {
+                    console.log('Add to wishList is saved!');
+                }).catch((e) => {
+                    console.log('Add to wishList Failed.', e);
+                });
 
-            // updating the state
-            this.setState(() => {
-                return {
-                    // products: tempProducts
-                    wishListIndex: this.state.wishListIndex + 1,
-                };
-            });
-        }
-        else {
-            const ItemToremove = firebase.database().ref('wishList');
-            ItemToremove.remove();
+                // updating the state
+                this.setState(() => {
+                    return {
+                        // products: tempProducts
+                        wishListIndex: this.state.wishListIndex + 1,
+                    };
+                });
+            }
+            else {
+                const ItemToremove = firebase.database().ref('wishList');
+                ItemToremove.remove();
 
-            const ItemToUpdate = firebase.database().ref('wishList');
-            ItemToUpdate.set(filteredWishList).then(() => {
-                console.log('remove from wishList Data is saved!');
-            }).catch((e) => {
-                console.log('remove from wishList Data Failed.', e);
-            });
+                const ItemToUpdate = firebase.database().ref('wishList');
+                ItemToUpdate.set(filteredWishList).then(() => {
+                    console.log('remove from wishList Data is saved!');
+                }).catch((e) => {
+                    console.log('remove from wishList Data Failed.', e);
+                });
 
-            this.setState(() => {
-                return {
-                    // products: tempProducts
-                    wishList: filteredWishList,
-                };
-            });
+                this.setState(() => {
+                    return {
+                        // products: tempProducts
+                        wishList: filteredWishList,
+                    };
+                });
 
+            }
         }
     }
 
@@ -433,6 +432,14 @@ class ProductProvider extends Component {
         })
     }
 
+    filteredItems = (chosenSize) => {
+        var x;
+        this.state.products.forEach(item => {
+            x = this.state.products.filter(item => item.itemSize == chosenSize);
+        })
+        return x;
+    }
+
     selectHandleChange = (selectedValue) => {
         console.log("select size changed", selectedValue);
 
@@ -459,6 +466,8 @@ class ProductProvider extends Component {
                     getMyCartItemsFromDB: this.getMyCartItemsFromDB,
                     getWishListFromFB: this.getWishListFromFB,
                     getProductsFromFB: this.getProductsFromFB,
+                    filteredItems: this.filteredItems,
+                    getFilteredProductsFromFB: this.getFilteredProductsFromFB,
 
                     TotalInMyCart: this.TotalInMyCart
                 }}>

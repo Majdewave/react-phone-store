@@ -16,25 +16,28 @@ class Details extends Component {
                 {value => {
                     if (value.products[0] != "loading") {
                         const { id, company, img, info, price, title, inCart, itemSize, galleryImg } = value.handleDetail(Number.parseInt(imgUrlId));
+                        debugger;
                         return (// py-5 : padding from top and bottom 
-                            <DetailsContainer className="container py-5">
-                                {/*title*/}
-                                <div className="row">
+                            <DetailsContainer className="container details-container py-5">
+                                {/* <div className="row">
                                     <div className="col-10 mx-auto text-center text-slanted text-blue my-5">
                                         <h1>{title}</h1>
-
                                     </div>
-                                </div>
-                                {/*End title */}
+                                </div> */}
 
                                 {/* product info*/}
                                 <div className="row">
-                                    <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
+                                    <div className="col-md-4 imgContainer text-capitalize">
                                         <img src={img} className="img-fluid" alt="product" />
-                                        {/* <Gallery items={galleryImg} /> */}
+                                        <img src={galleryImg[0].src} className="img-fluid" alt="product" />
 
                                     </div>
-                                    <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
+                                    <div className="col-md-7 text-capitalize">
+                                        <p className="productInfo">{info}</p>
+                                        <h4 className="product-price">
+                                            price: <span>$</span>{price}
+                                        </h4>
+
                                         <h2>Model: {title}</h2>
                                         <h4 className="text-title text-uppercase text-muted mt-3 mb-2">
                                             made by: <span className="text-uppercase">
@@ -43,26 +46,26 @@ class Details extends Component {
                                         </h4>
 
                                         <h4 className="text-title text-uppercase text-muted mt-3 mb-2">
-                                            Sizes: <span className="text-uppercase">
+                                            US Size: <span className="text-uppercase">
                                                 {itemSize}
                                             </span>
-                                        </h4>
-
-                                        <h4 className="text-blue">
-                                            price: <span>$</span>{price}
                                         </h4>
                                         <p className="text-capitalize font-weight-bold mt-3 mb-0">
                                             some info about the product:
                                     </p>
-                                        <p className="text-muted lead">{info}</p>
 
                                         {/*buttons*/}
                                         <div>
-                                            <Link to="/">
+                                            {/* <Link to="/">
                                                 <ButtonContainer>
                                                     back to product
                                             </ButtonContainer>
-                                            </Link>
+                                            </Link> */}
+                                            <span className="buyNow">
+                                                <ButtonContainer>
+                                                    Buy Now
+                                            </ButtonContainer>
+                                            </span>
                                             <ButtonContainer
                                                 cart // passing props: sending cart value to the button container 
                                                 // component to change this button color in styled component. look at Button component
@@ -76,7 +79,9 @@ class Details extends Component {
                                             </ButtonContainer>
                                         </div>
                                     </div>
-
+                                    <div className="recomended col-md-1">
+                                        Recomended for you
+                                    </div>
                                 </div>
                             </DetailsContainer>
                         )
@@ -95,7 +100,7 @@ const DetailsContainer = styled.div`
 background:#fff;
 
 .img-fluid {
-    transition: all 0.5s linear;
+    transition: all 0.1s linear;
     cursor: zoom-out;
     width:320px;
 }

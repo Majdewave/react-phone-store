@@ -174,28 +174,8 @@ footer a:hover {
   height: 70px;
 }
 
-.checkBoxAscending, .FilterByCatigory {
-  display: inline-block;
-}
-
-.FilteringContainer {
-  background-color: #ffc1075e;
-}
-
-.checkBoxAscending {
-  height: 37px;
-  vertical-align: top;
-  padding-top: 7px;
-  border: 1px solid #ffc107;
-  border-radius: 4px;
-}
-
 .checkBoxAscending input {
   margin-left: 7px;
-}
-
-.css-1wa3eu0-placeholder, .checkBoxAscending {
-  color: #856404 !important;
 }
 
 .card .img-container {
@@ -205,7 +185,6 @@ footer a:hover {
 
 .css-yk16xz-control {
   background-color: transparent !important;
-  border-color: #ffc107 !important;
 }
 
 .settingsBar {
@@ -1206,4 +1185,62 @@ button.RNIW_btnLink.forgotPasswordLink {
   width: 100%;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
+}
+
+.details-container .product-price {
+  height: 60px;
+  padding: 15px 0px 5px 0px;
+  border-top: 1px solid #f9f9f9;
+  border-bottom: 1px solid #f9f9f9;
+}
+
+.buyNow button.sc-bdVaJa.cnoDPn {
+  background-color: #ff5959;
+}
+
+.sleeveLengthOrder .sleeveOrderIcon {
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  margin: 4px 4px 0 0;
+}
+
+.FilteringContainer {
+  background-color: #fff;
+  ;
+}
+
+.sleeveLengthOrder .sleeveOrderIcon.active {
+  border: 2px solid #ff4747;
+}
+
+.sleeveLengthOrder .sleeveOrderIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sizeFilter {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 16px 0;
+}
+
+.colorFilter {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 16px 0;
+}
+
+.FilterByCatigory, .checkBoxAscending {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 16px 0;
+}
+
+.checkBoxAscending {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 16px 0;
+  height: 60px;
 }
