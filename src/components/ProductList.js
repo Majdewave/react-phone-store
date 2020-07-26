@@ -40,7 +40,6 @@ class ProductList extends Component {
         // this.handleCheckedXXS();
     };
     handleCheckedSize = (size) => {
-        debugger;
         this.setState({ isCheckedSize: !this.state.isCheckedSize, itemSize: size });
     };
 
@@ -71,7 +70,7 @@ class ProductList extends Component {
                             <div className="sizeFilter">
                                 Size
                                <ul className="sizeOrder">
-                                    <li><input type="checkbox" defaultChecked={false} onChange={() => this.handleCheckedSize("1")} /> XXS </li>
+                                    <li><input type="checkbox" defaultChecked={false} onChange={() => this.handleCheckedSize("L")} /> XXS </li>
                                     <li><input type="checkbox" defaultChecked={false} onChange={this.handleChecked} /> XS </li>
                                     <li><input type="checkbox" defaultChecked={false} onChange={this.handleChecked} /> S </li>
                                     <li><input type="checkbox" defaultChecked={false} onChange={this.handleChecked} /> M</li>

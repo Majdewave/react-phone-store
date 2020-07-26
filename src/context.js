@@ -20,6 +20,7 @@ class ProductProvider extends Component {
         WishListSideBarObj: ["loading"],
         wishList: [],
         detailProduct: [],
+        filteredProducts: [],
         cart: [], //storeProducts,
         cartDbKeys: [],
         modalOpen: false,
@@ -433,11 +434,22 @@ class ProductProvider extends Component {
     }
 
     filteredItems = (chosenSize) => {
-        var x;
-        this.state.products.forEach(item => {
-            x = this.state.products.filter(item => item.itemSize == chosenSize);
-        })
-        return x;
+        const productsRef = firebase.database().ref('storeProducts');
+        debugger;
+        let tempProducts = [];
+        productsRef.on('value', (snapshot) => {
+            let storeProducts = snapshot.val();
+            storeProducts.forEach(item => {
+                item.itemSize.forEach(size => {
+                    console.log(item.itemSize);
+                    if (size == chosenSize) {
+                        const singleItem = { ...item };
+                        tempProducts = [...tempProducts, singleItem];
+                    }
+                })
+            })
+        });
+        return tempProducts;
     }
 
     selectHandleChange = (selectedValue) => {
