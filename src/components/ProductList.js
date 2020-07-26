@@ -70,13 +70,13 @@ class ProductList extends Component {
                             <div className="sizeFilter">
                                 Size
                                <ul className="sizeOrder">
-                                    <li><input type="checkbox" defaultChecked={false} onChange={() => this.handleCheckedSize("L")} /> XXS </li>
-                                    <li><input type="checkbox" defaultChecked={false} onChange={this.handleChecked} /> XS </li>
-                                    <li><input type="checkbox" defaultChecked={false} onChange={this.handleChecked} /> S </li>
-                                    <li><input type="checkbox" defaultChecked={false} onChange={this.handleChecked} /> M</li>
-                                    <li><input type="checkbox" defaultChecked={false} onChange={this.handleChecked} /> L</li>
-                                    <li><input type="checkbox" defaultChecked={false} onChange={this.handleChecked} /> XL</li>
-                                    <li><input type="checkbox" defaultChecked={false} onChange={this.handleChecked} /> XXL</li>
+                                    <li><input type="checkbox" defaultChecked={false} onChange={() => this.handleCheckedSize("XXS")} /> XXS </li>
+                                    <li><input type="checkbox" defaultChecked={false} onChange={() => this.handleCheckedSize("XS")} /> XS </li>
+                                    <li><input type="checkbox" defaultChecked={false} onChange={() => this.handleCheckedSize("S")} /> S </li>
+                                    <li><input type="checkbox" defaultChecked={false} onChange={() => this.handleCheckedSize("M")} /> M</li>
+                                    <li><input type="checkbox" defaultChecked={false} onChange={() => this.handleCheckedSize("L")} /> L</li>
+                                    <li><input type="checkbox" defaultChecked={false} onChange={() => this.handleCheckedSize("XL")} /> XL</li>
+                                    <li><input type="checkbox" defaultChecked={false} onChange={() => this.handleCheckedSize("XXL")} /> XXL</li>
                                 </ul>
                             </div>
                             <div className="colorFilter">
